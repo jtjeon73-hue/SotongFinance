@@ -10,7 +10,7 @@
 | Git remote | `https://github.com/jtjeon73-hue/SotongFinance.git` |
 | 브랜치 | `main` |
 | **2단계 기준 커밋** | `fc4cfb8` |
-| **3단계 기준 커밋** | push 후 기입 |
+| **3단계 기준 커밋** | `4aea013744ce7562b8b067e41cda0aceec4c8484` |
 | 1단계 기준 커밋 | `088f2ec` |
 | Firebase Project ID | `sotong-finance` |
 | 운영 주소 | https://sotong-finance.web.app |
