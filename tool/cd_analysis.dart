@@ -51,8 +51,9 @@ void main() {
     'byKind': byKind,
     'items': cd,
   };
-  File('docs/cd-content-analysis.json')
-      .writeAsStringSync(const JsonEncoder.withIndent('  ').convert(out));
+  File(
+    'docs/cd-content-analysis.json',
+  ).writeAsStringSync(const JsonEncoder.withIndent('  ').convert(out));
   stdout.writeln('wrote docs/cd-content-analysis.json items=${cd.length}');
   for (final e in byKind.entries) {
     stdout.writeln('${e.key}: ${e.value}');
@@ -61,13 +62,20 @@ void main() {
 
 List<String> _priority(String id, String category) {
   final hints = <String>[];
-  if (id.contains('basics-') || id.endsWith('-basics') || id.contains('overview')) {
+  if (id.contains('basics-') ||
+      id.endsWith('-basics') ||
+      id.contains('overview')) {
     hints.add('선수지식/첫페이지');
   }
-  if (id.contains('diversif') || id.contains('allocation') || id.contains('portfolio')) {
+  if (id.contains('diversif') ||
+      id.contains('allocation') ||
+      id.contains('portfolio')) {
     hints.add('자산배분');
   }
-  if (id.startsWith('stock') || id.startsWith('etf') || id.startsWith('bond') || id.startsWith('gold')) {
+  if (id.startsWith('stock') ||
+      id.startsWith('etf') ||
+      id.startsWith('bond') ||
+      id.startsWith('gold')) {
     hints.add('투자위험');
   }
   if (id.startsWith('re-') || id.startsWith('loan-')) hints.add('부동산·대출');
