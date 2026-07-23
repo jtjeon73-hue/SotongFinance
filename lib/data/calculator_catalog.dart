@@ -271,7 +271,10 @@ CalculatorResult? runCalculator(String id, Map<String, double> values) {
           copyText: '단리 만기: ${total.round()}원',
         );
       case 'calc-compound':
-        final n = v('n') == 0 ? 1 : v('n').round();
+        final n = v('n').round();
+        if (n <= 0) {
+          throw ArgumentError('연간 복리횟수는 1 이상이어야 합니다.');
+        }
         final total = FinanceMath.compoundInterest(
           principal: v('principal'),
           annualRatePercent: v('rate'),

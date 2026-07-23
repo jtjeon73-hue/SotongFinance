@@ -1,0 +1,11 @@
+{
+  "name": "sotong-finance-e2e",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "responsive": "node responsive_check.mjs"
+  },
+  "dependencies": {
+    "playwright": "^1.61.1"
+  }
+}
