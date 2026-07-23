@@ -1,0 +1,35 @@
+{
+    "name": "SotongFinance",
+    "short_name": "SotongFinance",
+    "start_url": ".",
+    "display": "standalone",
+    "background_color": "#0B1F3A",
+    "theme_color": "#14375A",
+    "description": "금융·자산관리 교육 플랫폼 (교육용, 투자 추천 없음)",
+    "orientation": "any",
+    "prefer_related_applications": false,
+    "icons": [
+        {
+            "src": "icons/Icon-192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "icons/Icon-512.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        },
+        {
+            "src": "icons/Icon-maskable-192.png",
+            "sizes": "192x192",
+            "type": "image/png",
+            "purpose": "maskable"
+        },
+        {
+            "src": "icons/Icon-maskable-512.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "maskable"
+        }
+    ]
+}

@@ -1,0 +1,163 @@
+import '../core/utils/content_builder.dart';
+import '../models/enums.dart';
+import '../models/finance_content.dart';
+
+final bondContent = <FinanceContent>[
+  buildLesson(
+    id: 'bond-rate-up-price-down',
+    title: '금리 상승과 채권 가격',
+    summary: '시장 금리가 오르면 기존 채권 가격은 일반적으로 하락할 수 있습니다. 반대 관계를 숫자로 이해합니다.',
+    category: '채권',
+    difficulty: Difficulty.basic,
+    contentType: ContentType.calculation,
+    keywords: ['금리', '채권가격', '듀레이션'],
+    relatedIds: ['bond-hold-vs-sell', 'bond-duration'],
+    sourceIds: ['src-bok', 'src-fss'],
+    reviewCycle: '금리 변동 시',
+    checklist: ['표면금리 vs 시장금리', '만기', '보유 vs 매도 계획'],
+    nextActions: ['보유 채권 만기·금리 확인', '금리 시나리오 2개 가정'],
+    commonMistakes: ['채권=무조건 안전', '금리와 가격 무관하게 생각'],
+    sections: [
+      section('목적', '채권도 가격 변동이 있음을 이해합니다. 원금 보장은 만기 보유·발행자 신용 등 조건에 달려 있습니다.'),
+      section(
+        '교육용 예시',
+        '연 3% 쿠폰 채권을 보유 중 시장금리가 4%로 오르면, 새 채권이 더 매력적이어 기존 채권은 할인된 가격으로 거래될 수 있습니다(단순화된 설명).',
+        type: ContentType.calculation,
+      ),
+      section('확인할 숫자', '표면금리, 만기수익률(YTM), 잔존 만기, 신용등급, 보유 목적.'),
+      section(
+        '실천',
+        '금리 인상·인하 시나리오에서 평가손익과 생활비·유동성 영향을 메모합니다.',
+        type: ContentType.actionGuide,
+      ),
+      section('주의', '2026년 금리 경로는 불확실합니다. 공식 통계·전문 자료를 참고하세요.'),
+    ],
+  ),
+  buildLesson(
+    id: 'bond-hold-vs-sell',
+    title: '만기 보유 vs 중도 매도',
+    summary: '만기까지 보유하면 약정 이자·원금 구조를 따르지만, 중도 매도 시 시장가격·수수료·세금이 적용됩니다.',
+    category: '채권',
+    difficulty: Difficulty.basic,
+    contentType: ContentType.risk,
+    keywords: ['만기', '중도매도', '손실'],
+    relatedIds: ['bond-rate-up-price-down', 'bond-basics'],
+    reviewCycle: '금리·유동성 변화 시',
+    checklist: ['만기일', '중도매도 가능 여부', '시장가격 손익'],
+    nextActions: ['보유 채권별 만기·조건 정리'],
+    commonMistakes: ['은행 예금과 동일하게 가정', '유동성 필요 시 만기만 기다림'],
+    sections: [
+      section('목적', '채권 투자의 두 경로(보유·매도) 차이를 구분합니다.'),
+      section(
+        '만기 보유',
+        '발행자 부도가 없다면(신용위험 별도) 만기에 원금·이자 지급 구조를 따릅니다. 중간 평가손익은 실현되지 않을 수 있습니다.',
+      ),
+      section(
+        '중도 매도',
+        '시장금리·신용 스프레드·유동성에 따라 매도가가 달라집니다. 손실 가능성이 있습니다.',
+        type: ContentType.risk,
+      ),
+      section(
+        '실천 순서',
+        '①자금 필요 시점 ②만기 매칭 ③중도매도 비용·세금 ④대안(단기·현금)',
+        type: ContentType.actionGuide,
+      ),
+      section('자주 하는 실수', '‘채권이니 손해 없다’는 인식, MMF·채권형 펀드의 NAV 변동 무시.'),
+    ],
+  ),
+  _bd(
+    'bond-basics',
+    '채권 기초',
+    '채권은 돈을 빌려주고 이자·원금을 받는 구조입니다. 발행자·만기·금리·담보가 다릅니다.',
+    ['bond-government-corporate'],
+  ),
+  _bd(
+    'bond-yield-price',
+    '수익률과 가격',
+    '채권 가격과 수익률(YTM)은 반대 방향으로 움직일 수 있습니다.',
+    ['bond-rate-up-price-down'],
+    type: ContentType.calculation,
+  ),
+  _bd(
+    'bond-credit',
+    '신용위험',
+    '발행자가 원리금을 못 갚을 위험. 등급은 참고일 뿐 보장이 아닙니다.',
+    ['bond-government-corporate'],
+    type: ContentType.risk,
+  ),
+  _bd(
+    'bond-duration',
+    '듀레이션·금리민감도',
+    '금리 변화에 대한 가격 민감도 지표. 잔존 만기·쿠폰이 영향을 줍니다.',
+    ['bond-rate-up-price-down'],
+    type: ContentType.calculation,
+  ),
+  _bd(
+    'bond-government-corporate',
+    '국채·회사채',
+    '국가·지방 vs 기업 발행. 신용·유동성·세금·보수가 다릅니다.',
+    ['bond-credit'],
+  ),
+  _bd(
+    'bond-tax',
+    '채권 이자·양도세',
+    '이자소득세·분리과세 등은 소득·상품·시점에 따라 다릅니다. 세율은 공식 확인.',
+    ['tax-interest-dividend'],
+    sourceIds: ['src-nts'],
+    status: VerificationStatus.versionDependent,
+  ),
+  _bd(
+    'bond-fund',
+    '채권형 펀드·ETF',
+    '개별 채권과 달리 NAV 변동·보수·환매가 있습니다. ‘안전’만으로 선택하지 마세요.',
+    ['bond-hold-vs-sell', 'etf-basics'],
+    type: ContentType.risk,
+  ),
+  _bd(
+    'bond-checklist',
+    '채권 점검',
+    '만기·신용·금리·유동성·세금·포트폴리오 비중을 점검합니다.',
+    ['bond-hold-vs-sell', 'basics-decision'],
+    type: ContentType.checklist,
+  ),
+];
+
+FinanceContent _bd(
+  String id,
+  String title,
+  String summary,
+  List<String> related, {
+  ContentType type = ContentType.concept,
+  List<String> sourceIds = const ['src-fss', 'src-bok'],
+  VerificationStatus status = VerificationStatus.educationalExample,
+}) => buildLesson(
+  id: id,
+  title: title,
+  summary: summary,
+  category: '채권',
+  difficulty: Difficulty.basic,
+  contentType: type,
+  keywords: [title, '채권'],
+  relatedIds: related,
+  sourceIds: sourceIds,
+  verificationStatus: status,
+  reviewCycle: '반기 1회',
+  checklist: ['만기·금리', '신용등급', '중도매도 조건', '세금'],
+  nextActions: ['보유 채권·펀드 약관 확인'],
+  commonMistakes: ['채권=예금', '금리 리스크 무시', '회사채 신용 간과'],
+  sections: [
+    section('목적', '$title을(를) 통해 채권의 수익·위험 구조를 이해합니다.'),
+    section('확인할 숫자', '표면금리, YTM, 만기, 신용등급, 중도매도 가격, 보수(펀드), 세후 이자.'),
+    section(
+      '위험',
+      '채권도 원금 손실 가능성이 있습니다(특히 중도매도·신용 악화).',
+      type: ContentType.risk,
+    ),
+    section(
+      '실천 순서',
+      '①목적·기간 ②발행자·등급 ③금리 시나리오 ④유동성 ⑤기록',
+      type: ContentType.actionGuide,
+    ),
+    section('자주 하는 실수', '국채만 안전·회사채만 위험으로 이분법, 펀드 NAV 변동 간과.'),
+  ],
+);
