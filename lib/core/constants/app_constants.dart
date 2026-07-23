@@ -5,7 +5,7 @@ class AppConstants {
   static const String packageName = 'sotong_finance';
   static const String firebaseProjectId = 'sotong-finance';
   static const String hostingUrl = 'https://sotong-finance.web.app';
-  static const String phase = '2단계';
+  static const String phase = '3단계';
   static const String referenceYear = '2026';
   static const String checkedAt = '2026-07-23';
   static const String reviewDueAt = '2026-10-23';

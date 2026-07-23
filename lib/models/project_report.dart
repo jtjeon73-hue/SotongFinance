@@ -45,7 +45,7 @@ class ProjectReport {
 
   String toMarkdown() {
     final buf = StringBuffer()
-      ..writeln('# SotongFinance 2단계 완료 보고')
+      ..writeln('# SotongFinance $phase 완료 보고')
       ..writeln()
       ..writeln('## 작업 단계')
       ..writeln(phase)
@@ -83,10 +83,10 @@ class ProjectReport {
       ..writeln('## 남은 검토')
       ..writeln(remainingReviews.map((e) => '- $e').join('\n'))
       ..writeln()
-      ..writeln('## 2단계 범위(완료·잔여)')
+      ..writeln('## 2단계 범위')
       ..writeln(phase2Plan.map((e) => '- $e').join('\n'))
       ..writeln()
-      ..writeln('## 3단계 계획')
+      ..writeln('## 3단계 범위')
       ..writeln(phase3Plan.map((e) => '- $e').join('\n'));
     return buf.toString();
   }

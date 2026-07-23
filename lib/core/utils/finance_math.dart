@@ -222,4 +222,73 @@ class FinanceMath {
     if (monthlyIncome == 0) throw ArgumentError('월소득은 0이 될 수 없습니다.');
     return (monthlyPayment / monthlyIncome) * 100;
   }
+
+  /// 집중도(%) = 특정자산 ÷ 총자산 × 100
+  static double concentrationPercent({
+    required double focusAmount,
+    required double totalAssets,
+  }) {
+    if (totalAssets <= 0) throw ArgumentError('총자산은 0보다 커야 합니다.');
+    return (focusAmount / totalAssets) * 100;
+  }
+
+  /// 최대낙폭(%) = (고점 − 저점) ÷ 고점 × 100
+  static double maxDrawdownPercent({
+    required double peak,
+    required double trough,
+  }) {
+    if (peak <= 0) throw ArgumentError('고점은 0보다 커야 합니다.');
+    if (trough > peak) throw ArgumentError('저점은 고점 이하여야 합니다.');
+    return ((peak - trough) / peak) * 100;
+  }
+
+  /// 목표비중 대비 매수(+)/매도(−) 금액
+  static double rebalanceTradeAmount({
+    required double currentValue,
+    required double targetWeightPercent,
+    required double portfolioValue,
+  }) {
+    final target = portfolioValue * (targetWeightPercent / 100);
+    return target - currentValue;
+  }
+
+  /// 정액 인출 후 잔고(단일기간 교육용)
+  static double withdrawalBalance({
+    required double start,
+    required double returnPercent,
+    required double withdrawal,
+  }) {
+    return start * (1 + returnPercent / 100) - withdrawal;
+  }
+
+  /// 연금 공백 현금 필요액
+  static double pensionGapCashNeed({
+    required double monthlyNeed,
+    required double months,
+    required double otherMonthlyIncome,
+  }) {
+    final gap = monthlyNeed - otherMonthlyIncome;
+    if (gap <= 0) return 0;
+    return gap * months;
+  }
+
+  /// 가중 가정수익(%) — 권장비율 아님
+  static double weightedReturnPercent({
+    required List<double> weightsPercent,
+    required List<double> returnsPercent,
+  }) {
+    if (weightsPercent.length != returnsPercent.length) {
+      throw ArgumentError('비중과 수익 길이가 같아야 합니다.');
+    }
+    var sumW = 0.0;
+    var acc = 0.0;
+    for (var i = 0; i < weightsPercent.length; i++) {
+      sumW += weightsPercent[i];
+      acc += weightsPercent[i] * returnsPercent[i];
+    }
+    if ((sumW - 100).abs() > 0.01) {
+      throw ArgumentError('비중 합은 100%여야 합니다.');
+    }
+    return acc / 100;
+  }
 }

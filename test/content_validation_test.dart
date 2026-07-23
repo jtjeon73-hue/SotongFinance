@@ -84,7 +84,7 @@ void main() {
   });
 
   test('scenarios and prompts and terms populated', () {
-    expect(financialScenarios.length, greaterThanOrEqualTo(10));
+    expect(financialScenarios.length, greaterThanOrEqualTo(12));
     expect(promptItems.length, greaterThanOrEqualTo(15));
     expect(financialTerms.length, greaterThanOrEqualTo(40));
   });

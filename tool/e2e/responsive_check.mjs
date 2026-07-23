@@ -25,6 +25,12 @@ const ROUTES = [
   '/tools',
   '/diagnose',
   '/paths',
+  '/ips',
+  '/plan',
+  '/crisis',
+  '/annual-review',
+  '/estate-list',
+  '/timeline',
   '/project/report',
   '/learn/basics-money-role',
   '/learn/money-household',
@@ -38,6 +44,8 @@ const ROUTES = [
   '/tools/loan-payment',
   '/tools/emergency-months',
   '/tools/sequence-risk',
+  '/tools/concentration',
+  '/tools/withdrawal',
 ];
 
 function isMobile(vp) {

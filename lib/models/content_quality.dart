@@ -1,5 +1,19 @@
 enum ContentQualityGrade { a, b, c, d }
 
+enum ContentKind {
+  concept,
+  procedure,
+  compare,
+  checklist,
+  scenario,
+  taxRegime,
+  glossary,
+  fraud,
+  officialSource,
+  calculatorGuide,
+  lifePath,
+}
+
 extension ContentQualityGradeLabel on ContentQualityGrade {
   String get label => switch (this) {
     ContentQualityGrade.a => 'A',
@@ -16,14 +30,32 @@ extension ContentQualityGradeLabel on ContentQualityGrade {
   };
 }
 
+extension ContentKindLabel on ContentKind {
+  String get label => switch (this) {
+    ContentKind.concept => '개념',
+    ContentKind.procedure => '절차',
+    ContentKind.compare => '비교',
+    ContentKind.checklist => '체크리스트',
+    ContentKind.scenario => '사례',
+    ContentKind.taxRegime => '세금·제도',
+    ContentKind.glossary => '용어',
+    ContentKind.fraud => '사기예방',
+    ContentKind.officialSource => '공식자료',
+    ContentKind.calculatorGuide => '계산기 안내',
+    ContentKind.lifePath => '생애주기',
+  };
+}
+
 class ContentQualityEntry {
   const ContentQualityEntry({
     required this.id,
     required this.grade,
     required this.reason,
+    this.kind = ContentKind.concept,
   });
 
   final String id;
   final ContentQualityGrade grade;
   final String reason;
+  final ContentKind kind;
 }

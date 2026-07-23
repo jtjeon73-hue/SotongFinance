@@ -2,12 +2,18 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 import '../screens/about_screen.dart';
+import '../screens/annual_review_screen.dart';
 import '../screens/calculator_screen.dart';
 import '../screens/content_detail_screen.dart';
+import '../screens/crisis_screen.dart';
 import '../screens/diagnosis_screen.dart';
+import '../screens/estate_list_screen.dart';
+import '../screens/finance_plan_screen.dart';
 import '../screens/glossary_screen.dart';
 import '../screens/home_screen.dart';
+import '../screens/ips_screen.dart';
 import '../screens/life_paths_screen.dart';
+import '../screens/policy_timeline_screen.dart';
 import '../screens/project_report_screen.dart';
 import '../screens/prompts_screen.dart';
 import '../screens/scenario_detail_screen.dart';
@@ -45,6 +51,16 @@ const _toolSlugToCalcId = <String, String>{
   'retirement-cashflow': 'calc-retirement-cashflow',
   'debt-interest': 'calc-debt-interest',
   'allocation-shift': 'calc-allocation-shift',
+  'concentration': 'calc-concentration',
+  'drawdown': 'calc-drawdown',
+  'rebalance': 'calc-rebalance',
+  'withdrawal': 'calc-withdrawal',
+  'pension-gap-cash': 'calc-pension-gap-cash',
+  'spouse-cashflow': 'calc-spouse-cashflow',
+  'expense-bands': 'calc-expense-bands',
+  'care-stress': 'calc-care-stress',
+  'biz-split': 'calc-biz-split',
+  'sequence-multi': 'calc-sequence-multi',
 };
 
 String? calcIdFromToolSlug(String slug) => _toolSlugToCalcId[slug];
@@ -106,6 +122,42 @@ final appRouter = GoRouter(
           name: 'paths',
           pageBuilder: (context, state) =>
               const NoTransitionPage(child: LifePathsScreen()),
+        ),
+        GoRoute(
+          path: '/ips',
+          name: 'ips',
+          pageBuilder: (context, state) =>
+              const NoTransitionPage(child: IpsScreen()),
+        ),
+        GoRoute(
+          path: '/plan',
+          name: 'plan',
+          pageBuilder: (context, state) =>
+              const NoTransitionPage(child: FinancePlanScreen()),
+        ),
+        GoRoute(
+          path: '/crisis',
+          name: 'crisis',
+          pageBuilder: (context, state) =>
+              const NoTransitionPage(child: CrisisScreen()),
+        ),
+        GoRoute(
+          path: '/annual-review',
+          name: 'annualReview',
+          pageBuilder: (context, state) =>
+              const NoTransitionPage(child: AnnualReviewScreen()),
+        ),
+        GoRoute(
+          path: '/estate-list',
+          name: 'estateList',
+          pageBuilder: (context, state) =>
+              const NoTransitionPage(child: EstateListScreen()),
+        ),
+        GoRoute(
+          path: '/timeline',
+          name: 'timeline',
+          pageBuilder: (context, state) =>
+              const NoTransitionPage(child: PolicyTimelineScreen()),
         ),
         GoRoute(
           path: '/search',

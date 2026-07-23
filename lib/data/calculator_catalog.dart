@@ -386,6 +386,135 @@ const calculatorCatalog = <CalculatorDefinition>[
     limitations: ['권장비율 아님', '상관·위험 미반영', '과거≠미래'],
     route: '/tools/allocation-shift',
   ),
+  CalculatorDefinition(
+    id: 'calc-concentration',
+    title: '포트폴리오 집중도',
+    purpose: '특정 자산(또는 부동산)이 총자산에서 차지하는 비중을 봅니다.',
+    formula: '집중도% = 집중자산 ÷ 총자산 × 100',
+    fields: [
+      CalculatorField(key: 'focus', label: '집중 자산 금액', unit: '원'),
+      CalculatorField(key: 'total', label: '총자산', unit: '원'),
+    ],
+    limitations: ['상관·유동성 미반영', '권장비중 아님'],
+    route: '/tools/concentration',
+  ),
+  CalculatorDefinition(
+    id: 'calc-drawdown',
+    title: '최대낙폭(교육)',
+    purpose: '고점 대비 저점 하락폭을 교육용으로 계산합니다.',
+    formula: 'MDD% = (고점 − 저점) ÷ 고점 × 100',
+    fields: [
+      CalculatorField(key: 'peak', label: '고점', unit: '원'),
+      CalculatorField(key: 'trough', label: '저점', unit: '원'),
+    ],
+    limitations: ['과거 지표≠미래', '하나의 위험만 설명하지 않음'],
+    route: '/tools/drawdown',
+  ),
+  CalculatorDefinition(
+    id: 'calc-rebalance',
+    title: '리밸런싱 매매액',
+    purpose: '목표비중으로 맞출 때 필요한 매수(+)/매도(−) 금액.',
+    formula: '거래액 = 목표가 − 현재가, 목표가 = 포트폴리오×목표비중%',
+    fields: [
+      CalculatorField(key: 'current', label: '현재 평가액', unit: '원'),
+      CalculatorField(key: 'targetW', label: '목표 비중', unit: '%'),
+      CalculatorField(key: 'portfolio', label: '포트폴리오 총액', unit: '원'),
+    ],
+    limitations: ['세금·수수료 미반영', '수익률 극대화 목적 아님'],
+    route: '/tools/rebalance',
+  ),
+  CalculatorDefinition(
+    id: 'calc-withdrawal',
+    title: '은퇴 인출 시나리오(1년)',
+    purpose: '가정 수익 후 정액 인출 잔고(교육).',
+    formula: '잔고 = 시작×(1+r) − 인출',
+    fields: [
+      CalculatorField(key: 'start', label: '기초 자산', unit: '원'),
+      CalculatorField(key: 'ret', label: '가정 수익률', unit: '%'),
+      CalculatorField(key: 'wd', label: '인출액', unit: '원'),
+    ],
+    limitations: ['안전인출률 단정 금지', '다기간·세금 미반영'],
+    route: '/tools/withdrawal',
+  ),
+  CalculatorDefinition(
+    id: 'calc-pension-gap-cash',
+    title: '연금개시 공백 현금',
+    purpose: '수급 전 공백 개월의 현금 필요(교육).',
+    formula: '필요 = max(0, 월필요−기타월소득) × 개월',
+    fields: [
+      CalculatorField(key: 'need', label: '월 필요생활비', unit: '원'),
+      CalculatorField(key: 'other', label: '기타 월소득', unit: '원'),
+      CalculatorField(key: 'months', label: '공백 개월', unit: '개월'),
+    ],
+    limitations: ['NPS 공식조회 권장', '의료·세금 별도'],
+    route: '/tools/pension-gap-cash',
+  ),
+  CalculatorDefinition(
+    id: 'calc-spouse-cashflow',
+    title: '배우자 단독 현금흐름',
+    purpose: '소득 중단 가정 시 월 갭(교육).',
+    formula: '갭 = 생활비 − (연금+기타)',
+    fields: [
+      CalculatorField(key: 'living', label: '월 생활비', unit: '원'),
+      CalculatorField(key: 'pension', label: '월 연금합', unit: '원'),
+      CalculatorField(key: 'other', label: '월 기타소득', unit: '원'),
+    ],
+    limitations: ['유족·보험은 계약 확인', '예측 아님'],
+    route: '/tools/spouse-cashflow',
+  ),
+  CalculatorDefinition(
+    id: 'calc-expense-bands',
+    title: '노후생활비 구간',
+    purpose: '필수·선택·의료를 구분해 합산합니다.',
+    formula: '합계 = 필수+선택+의료(+기타)',
+    fields: [
+      CalculatorField(key: 'essential', label: '필수생활비', unit: '원/월'),
+      CalculatorField(key: 'discretionary', label: '선택생활비', unit: '원/월'),
+      CalculatorField(key: 'medical', label: '의료·간병 여유', unit: '원/월'),
+    ],
+    limitations: ['물가·간병 급증 별도 스트레스'],
+    route: '/tools/expense-bands',
+  ),
+  CalculatorDefinition(
+    id: 'calc-care-stress',
+    title: '의료·간병 스트레스',
+    purpose: '추가 월비용이 현금흐름에 미치는 영향.',
+    formula: '조정갭 = (생활비+추가) − 소득',
+    fields: [
+      CalculatorField(key: 'living', label: '기본 월생활비', unit: '원'),
+      CalculatorField(key: 'extra', label: '추가 의료·간병', unit: '원'),
+      CalculatorField(key: 'income', label: '월 소득·연금', unit: '원'),
+    ],
+    limitations: ['보험금 확정 아님'],
+    route: '/tools/care-stress',
+  ),
+  CalculatorDefinition(
+    id: 'calc-biz-split',
+    title: '사업·개인 현금흐름 분리',
+    purpose: '사업순유입과 개인생활비를 구분해 봅니다.',
+    formula: '개인여유 = 사업순유입 − 개인생활비 − 개인상환',
+    fields: [
+      CalculatorField(key: 'biz', label: '사업 월순유입', unit: '원'),
+      CalculatorField(key: 'personal', label: '개인 생활비', unit: '원'),
+      CalculatorField(key: 'pay', label: '개인 대출상환', unit: '원'),
+    ],
+    limitations: ['매출≠순유입', '세금 별도'],
+    route: '/tools/biz-split',
+  ),
+  CalculatorDefinition(
+    id: 'calc-sequence-multi',
+    title: '순서위험 2기간',
+    purpose: '인출 중 수익 순서가 잔고에 미치는 교육 비교.',
+    formula: '잔고A/B = 수익 순서만 바꾼 2년 인출 후 잔고',
+    fields: [
+      CalculatorField(key: 'start', label: '시작자산', unit: '원'),
+      CalculatorField(key: 'r1', label: '1년 수익', unit: '%'),
+      CalculatorField(key: 'r2', label: '2년 수익', unit: '%'),
+      CalculatorField(key: 'wd', label: '매년 인출', unit: '원'),
+    ],
+    limitations: ['교육용', '세금·수수료 없음', '예측 아님'],
+    route: '/tools/sequence-multi',
+  ),
 ];
 
 /// 계산기 실행 결과 (교육용)
@@ -700,6 +829,120 @@ CalculatorResult? runCalculator(String id, Map<String, double> values) {
           summary: '총이자 ${interest.round()}원',
           details: ['원리금균등 가정'],
           copyText: '총이자: ${interest.round()}원',
+        );
+
+      case 'calc-concentration':
+        final r = FinanceMath.concentrationPercent(
+          focusAmount: v('focus'),
+          totalAssets: v('total'),
+        );
+        return CalculatorResult(
+          summary: '집중도 ${r.toStringAsFixed(1)}%',
+          details: ['권장비중 아님', '상관·유동성 별도'],
+          copyText: '집중도: ${r.toStringAsFixed(1)}%',
+        );
+      case 'calc-drawdown':
+        final r = FinanceMath.maxDrawdownPercent(
+          peak: v('peak'),
+          trough: v('trough'),
+        );
+        return CalculatorResult(
+          summary: '최대낙폭 ${r.toStringAsFixed(2)}%',
+          details: ['과거≠미래'],
+          copyText: 'MDD: ${r.toStringAsFixed(2)}%',
+        );
+      case 'calc-rebalance':
+        final r = FinanceMath.rebalanceTradeAmount(
+          currentValue: v('current'),
+          targetWeightPercent: v('targetW'),
+          portfolioValue: v('portfolio'),
+        );
+        return CalculatorResult(
+          summary: r >= 0 ? '매수 필요 ${r.round()}원' : '매도 필요 ${(-r).round()}원',
+          details: ['세금·수수료 미반영'],
+          copyText: '리밸런싱: ${r.round()}원',
+        );
+      case 'calc-withdrawal':
+        final r = FinanceMath.withdrawalBalance(
+          start: v('start'),
+          returnPercent: v('ret'),
+          withdrawal: v('wd'),
+        );
+        return CalculatorResult(
+          summary: '기말 잔고 ${r.round()}원',
+          details: ['안전인출률 단정 금지'],
+          copyText: '인출후잔고: ${r.round()}원',
+        );
+      case 'calc-pension-gap-cash':
+        final r = FinanceMath.pensionGapCashNeed(
+          monthlyNeed: v('need'),
+          months: v('months'),
+          otherMonthlyIncome: v('other'),
+        );
+        return CalculatorResult(
+          summary: '공백 현금 ${r.round()}원',
+          details: ['NPS 공식조회 권장'],
+          copyText: '공백현금: ${r.round()}원',
+        );
+      case 'calc-spouse-cashflow':
+        final gap = v('living') - (v('pension') + v('other'));
+        return CalculatorResult(
+          summary: gap >= 0 ? '월 갭 ${gap.round()}원' : '월 여유 ${(-gap).round()}원',
+          details: ['교육용 가정'],
+          copyText: '배우자단독갭: ${gap.round()}원',
+        );
+      case 'calc-expense-bands':
+        final sum = v('essential') + v('discretionary') + v('medical');
+        return CalculatorResult(
+          summary: '월 합계 ${sum.round()}원',
+          details: [
+            '필수 ${v("essential").round()}',
+            '선택 ${v("discretionary").round()}',
+            '의료여유 ${v("medical").round()}',
+          ],
+          copyText: '생활비합계: ${sum.round()}원',
+        );
+      case 'calc-care-stress':
+        final gap = (v('living') + v('extra')) - v('income');
+        return CalculatorResult(
+          summary: gap >= 0
+              ? '스트레스 갭 ${gap.round()}원'
+              : '여유 ${(-gap).round()}원',
+          details: ['보험금 미확정'],
+          copyText: '간병스트레스갭: ${gap.round()}원',
+        );
+      case 'calc-biz-split':
+        final r = v('biz') - v('personal') - v('pay');
+        return CalculatorResult(
+          summary: '개인 여유 ${r.round()}원',
+          details: ['매출≠순유입'],
+          copyText: '개인여유: ${r.round()}원',
+        );
+      case 'calc-sequence-multi':
+        final a1 = FinanceMath.withdrawalBalance(
+          start: v('start'),
+          returnPercent: v('r1'),
+          withdrawal: v('wd'),
+        );
+        final a2 = FinanceMath.withdrawalBalance(
+          start: a1,
+          returnPercent: v('r2'),
+          withdrawal: v('wd'),
+        );
+        final b1 = FinanceMath.withdrawalBalance(
+          start: v('start'),
+          returnPercent: v('r2'),
+          withdrawal: v('wd'),
+        );
+        final b2 = FinanceMath.withdrawalBalance(
+          start: b1,
+          returnPercent: v('r1'),
+          withdrawal: v('wd'),
+        );
+        return CalculatorResult(
+          summary: '순서A ${a2.round()}원 / 순서B ${b2.round()}원',
+          details: ['같은 평균이라도 순서가 잔고를 바꿈', '예측 아님'],
+          copyText: '순서위험 A:${a2.round()} B:${b2.round()}',
         );
       case 'calc-allocation-shift':
         final w1 = v('w1') / 100;

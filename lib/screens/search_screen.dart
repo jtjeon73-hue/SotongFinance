@@ -21,6 +21,8 @@ class _SearchScreenState extends State<SearchScreen> {
   ContentType? _contentType;
   LifeStage? _lifeStage;
   bool _reviewDueOnly = false;
+  bool _professionalOnly = false;
+  bool _easyFinanceOnly = false;
 
   @override
   void dispose() {
@@ -44,6 +46,26 @@ class _SearchScreenState extends State<SearchScreen> {
     }
     if (_reviewDueOnly) {
       list = list.where((c) => c.needsReview == true).toList();
+    }
+    if (_professionalOnly) {
+      list = list
+          .where(
+            (c) =>
+                c.contentType == ContentType.professionalReview ||
+                c.verificationStatus ==
+                    VerificationStatus.professionalReviewRequired,
+          )
+          .toList();
+    }
+    if (_easyFinanceOnly) {
+      list = list
+          .where(
+            (c) =>
+                c.difficulty == Difficulty.intro ||
+                c.difficulty == Difficulty.basic ||
+                c.lifeStages.contains(LifeStage.retired),
+          )
+          .toList();
     }
     return list;
   }
@@ -114,6 +136,16 @@ class _SearchScreenState extends State<SearchScreen> {
               label: const Text('검토기한 초과'),
               selected: _reviewDueOnly,
               onSelected: (v) => setState(() => _reviewDueOnly = v),
+            ),
+            FilterChip(
+              label: const Text('전문가 확인 필요'),
+              selected: _professionalOnly,
+              onSelected: (v) => setState(() => _professionalOnly = v),
+            ),
+            FilterChip(
+              label: const Text('쉬운 금융'),
+              selected: _easyFinanceOnly,
+              onSelected: (v) => setState(() => _easyFinanceOnly = v),
             ),
           ],
         ),

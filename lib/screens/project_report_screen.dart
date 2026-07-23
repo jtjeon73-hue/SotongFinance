@@ -1,11 +1,17 @@
 import 'package:flutter/material.dart';
 
 import '../core/constants/app_constants.dart';
+import '../data/application_validation_data.dart';
 import '../data/calculator_catalog.dart';
 import '../data/content_catalog.dart';
 import '../data/content_quality_data.dart';
+import '../data/crisis_data.dart';
+import '../data/finance_plan_data.dart';
+import '../data/ips_data.dart';
 import '../data/life_path_data.dart';
 import '../data/phase2_upgraded_ids.dart';
+import '../data/phase3_upgraded_ids.dart';
+import '../data/policy_timeline_data.dart';
 import '../data/prompt_data.dart';
 import '../data/scenario_data.dart';
 import '../data/source_data.dart';
@@ -32,12 +38,14 @@ class ProjectReportScreen extends StatelessWidget {
       statusCounts[s.verificationStatus] =
           (statusCounts[s.verificationStatus] ?? 0) + 1;
     }
+    final cdKinds = countCdByKind();
+    final appVal = countApplicationValidation();
 
     return ProjectReport(
       phase: AppConstants.phase,
       summary:
-          '2단계 실무 콘텐츠 심화: 핵심 ${phase2UpgradedIds.length}개 수동 보강, '
-          '교육용 재무진단·생애주기 경로·계산기 확장·검토기한·출처 확대. '
+          '3단계 전문가 심화: Phase2 ${phase2UpgradedIds.length} + Phase3 ${phase3UpgradedIds.length}개 수동 보강, '
+          'IPS·재무계획·위기대응·연간점검·제도타임라인·전문가 계산기·프롬프트 확장. '
           '상품 추천·세율 임의고정·개인재무 서버저장 없음.',
       contentCount: allFinanceContent.length,
       calculatorCount: calculatorCatalog.length,
@@ -47,7 +55,7 @@ class ProjectReportScreen extends StatelessWidget {
       sourceCount: officialSources.length,
       testStatus:
           'format / analyze --fatal-infos / flutter test / web release / 반응형 E2E',
-      commitHash: '6aef3cf6ce1a397acd079dd25684649c6fece4ce',
+      commitHash: 'pending-phase3',
       actionsStatus: 'push 후 build-and-test · Firebase Hosting 자동배포 확인',
       firebaseProjectId: AppConstants.firebaseProjectId,
       hostingUrl: AppConstants.hostingUrl,
@@ -57,31 +65,41 @@ class ProjectReportScreen extends StatelessWidget {
           'B ${grades[ContentQualityGrade.b] ?? 0} · '
           'C ${grades[ContentQualityGrade.c] ?? 0} · '
           'D ${grades[ContentQualityGrade.d] ?? 0} '
-          '(글자수 비사용). 출처 상태 verified ${statusCounts[VerificationStatus.verified]} · '
+          '(유형별 판정, 글자수 비사용). '
+          '잔여 C/D 유형: ${cdKinds.entries.where((e) => e.value > 0).map((e) => '${e.key.label}:${e.value}').join(', ')}. '
+          '출처 verified ${statusCounts[VerificationStatus.verified]} · '
           'versionDependent ${statusCounts[VerificationStatus.versionDependent]} · '
           'needsReview ${statusCounts[VerificationStatus.needsReview]} · '
           'officialCalculatorRecommended ${statusCounts[VerificationStatus.officialCalculatorRecommended]} · '
           'professionalReviewRequired ${statusCounts[VerificationStatus.professionalReviewRequired]} · '
           'educationalExample ${statusCounts[VerificationStatus.educationalExample]} · '
-          '출처 검토기한 초과 $overdueSources',
-      upgradedContentCount: phase2UpgradedIds.length,
+          '출처 검토기한 초과 $overdueSources · '
+          'IPS ${ipsTemplateFields.length}항목 · 재무계획 ${financePlanSteps.length}단계 · '
+          '위기대응 ${crisisEvents.length} · 타임라인 ${policyTimeline.length} · '
+          '적용검증 deskReviewed ${appVal[ApplicationValidationStatus.deskReviewed]} · '
+          'calculationValidated ${appVal[ApplicationValidationStatus.calculationValidated]} · '
+          'officialCalculatorRequired ${appVal[ApplicationValidationStatus.officialCalculatorRequired]} · '
+          'professionalReviewRequired ${appVal[ApplicationValidationStatus.professionalReviewRequired]} · '
+          'userSituationRequired ${appVal[ApplicationValidationStatus.userSituationRequired]} · '
+          'notApplicable ${appVal[ApplicationValidationStatus.notApplicable]}',
+      upgradedContentCount: phase2UpgradedIds.length + phase3UpgradedIds.length,
       lifePathCount: lifePaths.length,
       diagnosisAvailable: true,
       remainingReviews: [
-        '세금·연금·대출규제 versionDependent 콘텐츠 공식 재대조',
-        '잔여 C/D 템플릿 콘텐츠 3단계 보강',
-        '전문가 검토 필요 표시 항목(농지·상속·세무) 심화',
+        '세금·연금·대출규제 versionDependent 공식 재대조',
+        '잔여 C/D(역할상 개념·용어)는 억지 A 미적용',
+        '상속·농지·세무는 professionalReviewRequired 유지',
+        '개인 상황 적용은 userSituationRequired',
       ],
       phase2Plan: [
-        '핵심 콘텐츠 수동 보강 완료(${phase2UpgradedIds.length})',
-        '재무진단·생애주기·계산기·프롬프트·출처·검토기한 반영',
-        '남은 C/D는 자동 A 처리하지 않음',
+        '2단계 보강 ${phase2UpgradedIds.length} 완료',
+        '재무진단·생애주기·검토기한 유지',
       ],
       phase3Plan: [
-        '자산배분·은퇴 인출 심화',
-        '세금·상속 준비 심화(확정세액 아님)',
-        '위험관리·스트레스 시나리오 확장',
-        '전문가 검토 연계·제도 변경 타임라인',
+        '3단계 보강 ${phase3UpgradedIds.length} 완료',
+        'IPS·재무계획·위기대응·연간점검·타임라인',
+        '전문가 계산기·프롬프트·유형별 품질판정',
+        '개인정보 비저장·교육용 제한 유지',
       ],
     );
   }
@@ -97,12 +115,12 @@ class ProjectReportScreen extends StatelessWidget {
         const Breadcrumb(
           items: [
             BreadcrumbItem(label: '홈', route: '/'),
-            BreadcrumbItem(label: '2단계 완료 보고'),
+            BreadcrumbItem(label: '3단계 완료 보고'),
           ],
         ),
         const SizedBox(height: 16),
         Text(
-          '2단계 완료 보고',
+          '3단계 완료 보고',
           style: Theme.of(
             context,
           ).textTheme.headlineSmall?.copyWith(fontWeight: FontWeight.w800),

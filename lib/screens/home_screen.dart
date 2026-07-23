@@ -61,6 +61,29 @@ class HomeScreen extends StatelessWidget {
           (e) => _LinkTile(title: e.$1.label, subtitle: e.$2, route: e.$3),
         ),
         const SizedBox(height: 28),
+        _SectionTitle('3단계 전문가 도구'),
+        const SizedBox(height: 12),
+        _LinkTile(
+          title: '재무계획 16단계',
+          subtitle: '현황부터 위기대응까지 점검 순서',
+          route: '/plan',
+        ),
+        _LinkTile(
+          title: '투자정책서(IPS)',
+          subtitle: '교육용 템플릿 · 권장비율 없음 · 비저장',
+          route: '/ips',
+        ),
+        _LinkTile(
+          title: '연간 점검·위기대응',
+          subtitle: '점검표 복사 · 사건별 런북',
+          route: '/annual-review',
+        ),
+        _LinkTile(
+          title: '3단계 완료 보고',
+          subtitle: '품질·도구·출처·개인정보 요약',
+          route: '/project/report',
+        ),
+        const SizedBox(height: 28),
         _SectionTitle('2단계 실무 도구'),
         const SizedBox(height: 12),
         _LinkTile(

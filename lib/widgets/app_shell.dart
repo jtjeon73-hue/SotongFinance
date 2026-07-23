@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
+import '../app/accessibility_settings.dart';
 import '../core/constants/app_constants.dart';
 import '../core/theme/app_theme.dart';
 import '../data/nav_data.dart';
@@ -85,6 +86,16 @@ class _AppShellState extends State<AppShell> {
                 ),
               ),
               actions: [
+                Semantics(
+                  button: true,
+                  label: '글자 크기 변경',
+                  child: IconButton(
+                    icon: const Icon(Icons.text_fields),
+                    onPressed: () =>
+                        AccessibilitySettings.of(context).cycleTextScale(),
+                    tooltip: AccessibilitySettings.of(context).label,
+                  ),
+                ),
                 Semantics(
                   button: true,
                   label: '검색',
@@ -205,6 +216,19 @@ class _DesktopTopBar extends StatelessWidget {
             ),
           ),
           const Spacer(),
+          Semantics(
+            button: true,
+            label: '글자 크기 변경',
+            child: TextButton.icon(
+              onPressed: () =>
+                  AccessibilitySettings.of(context).cycleTextScale(),
+              icon: const Icon(Icons.text_fields, color: Colors.white70),
+              label: Text(
+                AccessibilitySettings.of(context).label,
+                style: const TextStyle(color: Colors.white70),
+              ),
+            ),
+          ),
           Semantics(
             button: true,
             label: '검색',

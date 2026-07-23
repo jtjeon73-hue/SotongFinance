@@ -1258,6 +1258,52 @@ const appNavGroups = <NavGroup>[
         title: '자산배분 변동 시나리오',
         route: '/tools/allocation-shift',
       ),
+      NavItem(
+        id: 'calc-concentration',
+        title: '포트폴리오 집중도',
+        route: '/tools/concentration',
+      ),
+      NavItem(id: 'calc-drawdown', title: '최대낙폭', route: '/tools/drawdown'),
+      NavItem(
+        id: 'calc-rebalance',
+        title: '리밸런싱 매매액',
+        route: '/tools/rebalance',
+      ),
+      NavItem(
+        id: 'calc-withdrawal',
+        title: '은퇴 인출 시나리오',
+        route: '/tools/withdrawal',
+      ),
+      NavItem(
+        id: 'calc-pension-gap-cash',
+        title: '연금개시 공백 현금',
+        route: '/tools/pension-gap-cash',
+      ),
+      NavItem(
+        id: 'calc-spouse-cashflow',
+        title: '배우자 단독 현금흐름',
+        route: '/tools/spouse-cashflow',
+      ),
+      NavItem(
+        id: 'calc-expense-bands',
+        title: '노후생활비 구간',
+        route: '/tools/expense-bands',
+      ),
+      NavItem(
+        id: 'calc-care-stress',
+        title: '의료·간병 스트레스',
+        route: '/tools/care-stress',
+      ),
+      NavItem(
+        id: 'calc-biz-split',
+        title: '사업·개인 현금분리',
+        route: '/tools/biz-split',
+      ),
+      NavItem(
+        id: 'calc-sequence-multi',
+        title: '순서위험 2기간',
+        route: '/tools/sequence-multi',
+      ),
     ],
   ),
   NavGroup(
@@ -1270,6 +1316,12 @@ const appNavGroups = <NavGroup>[
       NavItem(id: 'scenarios', title: '금융 시나리오', route: '/scenarios'),
       NavItem(id: 'prompts', title: '분석 프롬프트', route: '/prompts'),
       NavItem(id: 'paths', title: '생애주기 경로', route: '/paths'),
+      NavItem(id: 'plan', title: '재무계획 16단계', route: '/plan'),
+      NavItem(id: 'ips', title: '투자정책서(IPS)', route: '/ips'),
+      NavItem(id: 'annual', title: '연간 점검', route: '/annual-review'),
+      NavItem(id: 'crisis', title: '위기대응', route: '/crisis'),
+      NavItem(id: 'estate', title: '상속재산 목록', route: '/estate-list'),
+      NavItem(id: 'timeline', title: '제도 타임라인', route: '/timeline'),
       NavItem(id: 'diagnose', title: '교육용 재무진단', route: '/diagnose'),
       NavItem(id: 'search', title: '검색', route: '/search'),
     ],
@@ -1281,7 +1333,7 @@ const appNavGroups = <NavGroup>[
     items: [
       NavItem(
         id: 'project-report',
-        title: '2단계 완료 보고',
+        title: '3단계 완료 보고',
         route: '/project/report',
       ),
       NavItem(id: 'about', title: '사이트 안내', route: '/about'),

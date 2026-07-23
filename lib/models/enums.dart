@@ -33,6 +33,16 @@ enum VerificationStatus {
   educationalExample,
 }
 
+/// 출처 상태와 별개로, 개인 적용 검증 상태
+enum ApplicationValidationStatus {
+  notApplicable,
+  deskReviewed,
+  calculationValidated,
+  officialCalculatorRequired,
+  professionalReviewRequired,
+  userSituationRequired,
+}
+
 extension DifficultyLabel on Difficulty {
   String get label => switch (this) {
     Difficulty.intro => '입문',
@@ -80,5 +90,19 @@ extension VerificationStatusLabel on VerificationStatus {
     VerificationStatus.professionalReviewRequired =>
       'professionalReviewRequired',
     VerificationStatus.educationalExample => 'educationalExample',
+  };
+}
+
+extension ApplicationValidationStatusLabel on ApplicationValidationStatus {
+  String get label => switch (this) {
+    ApplicationValidationStatus.notApplicable => 'notApplicable',
+    ApplicationValidationStatus.deskReviewed => 'deskReviewed',
+    ApplicationValidationStatus.calculationValidated => 'calculationValidated',
+    ApplicationValidationStatus.officialCalculatorRequired =>
+      'officialCalculatorRequired',
+    ApplicationValidationStatus.professionalReviewRequired =>
+      'professionalReviewRequired',
+    ApplicationValidationStatus.userSituationRequired =>
+      'userSituationRequired',
   };
 }

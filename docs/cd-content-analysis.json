@@ -1,0 +1,1639 @@
+{
+  "generatedAt": "2026-07-23T17:26:56.278230",
+  "totalCd": 117,
+  "byKind": {
+    "개념": 84,
+    "체크리스트": 5,
+    "비교": 4,
+    "사기예방": 8,
+    "절차": 1,
+    "사례": 3,
+    "세금·제도": 12
+  },
+  "items": [
+    {
+      "id": "basics-diversification",
+      "grade": "C",
+      "title": "분산투자",
+      "category": "금융기초",
+      "contentType": "risk",
+      "inferredKind": "개념",
+      "sections": 5,
+      "checklist": true,
+      "sources": false,
+      "priorityHints": [
+        "선수지식/첫페이지",
+        "자산배분"
+      ]
+    },
+    {
+      "id": "basics-inflation",
+      "grade": "C",
+      "title": "인플레이션",
+      "category": "금융기초",
+      "contentType": "concept",
+      "inferredKind": "개념",
+      "sections": 5,
+      "checklist": true,
+      "sources": true,
+      "priorityHints": [
+        "선수지식/첫페이지"
+      ]
+    },
+    {
+      "id": "basics-interest",
+      "grade": "C",
+      "title": "이자",
+      "category": "금융기초",
+      "contentType": "calculation",
+      "inferredKind": "개념",
+      "sections": 5,
+      "checklist": true,
+      "sources": true,
+      "priorityHints": [
+        "선수지식/첫페이지"
+      ]
+    },
+    {
+      "id": "basics-money-role",
+      "grade": "C",
+      "title": "돈의 역할",
+      "category": "금융기초",
+      "contentType": "concept",
+      "inferredKind": "개념",
+      "sections": 5,
+      "checklist": true,
+      "sources": true,
+      "priorityHints": [
+        "선수지식/첫페이지"
+      ]
+    },
+    {
+      "id": "basics-simple-compound",
+      "grade": "C",
+      "title": "단리·복리",
+      "category": "금융기초",
+      "contentType": "calculation",
+      "inferredKind": "개념",
+      "sections": 5,
+      "checklist": true,
+      "sources": false,
+      "priorityHints": [
+        "선수지식/첫페이지"
+      ]
+    },
+    {
+      "id": "bond-basics",
+      "grade": "C",
+      "title": "채권 기초",
+      "category": "채권",
+      "contentType": "concept",
+      "inferredKind": "개념",
+      "sections": 5,
+      "checklist": true,
+      "sources": true,
+      "priorityHints": [
+        "선수지식/첫페이지",
+        "투자위험"
+      ]
+    },
+    {
+      "id": "bond-checklist",
+      "grade": "C",
+      "title": "채권 점검",
+      "category": "채권",
+      "contentType": "checklist",
+      "inferredKind": "체크리스트",
+      "sections": 5,
+      "checklist": true,
+      "sources": true,
+      "priorityHints": [
+        "투자위험"
+      ]
+    },
+    {
+      "id": "bond-credit",
+      "grade": "C",
+      "title": "신용위험",
+      "category": "채권",
+      "contentType": "risk",
+      "inferredKind": "개념",
+      "sections": 5,
+      "checklist": true,
+      "sources": true,
+      "priorityHints": [
+        "투자위험"
+      ]
+    },
+    {
+      "id": "bond-fund",
+      "grade": "C",
+      "title": "채권형 펀드·ETF",
+      "category": "채권",
+      "contentType": "risk",
+      "inferredKind": "개념",
+      "sections": 5,
+      "checklist": true,
+      "sources": true,
+      "priorityHints": [
+        "투자위험"
+      ]
+    },
+    {
+      "id": "bond-government-corporate",
+      "grade": "C",
+      "title": "국채·회사채",
+      "category": "채권",
+      "contentType": "concept",
+      "inferredKind": "개념",
+      "sections": 5,
+      "checklist": true,
+      "sources": true,
+      "priorityHints": [
+        "투자위험"
+      ]
+    },
+    {
+      "id": "bond-hold-vs-sell",
+      "grade": "C",
+      "title": "만기 보유 vs 중도 매도",
+      "category": "채권",
+      "contentType": "risk",
+      "inferredKind": "비교",
+      "sections": 5,
+      "checklist": true,
+      "sources": false,
+      "priorityHints": [
+        "투자위험"
+      ]
+    },
+    {
+      "id": "bond-tax",
+      "grade": "C",
+      "title": "채권 이자·양도세",
+      "category": "채권",
+      "contentType": "concept",
+      "inferredKind": "개념",
+      "sections": 5,
+      "checklist": true,
+      "sources": true,
+      "priorityHints": [
+        "투자위험"
+      ]
+    },
+    {
+      "id": "bond-yield-price",
+      "grade": "C",
+      "title": "수익률과 가격",
+      "category": "채권",
+      "contentType": "calculation",
+      "inferredKind": "개념",
+      "sections": 5,
+      "checklist": true,
+      "sources": true,
+      "priorityHints": [
+        "투자위험"
+      ]
+    },
+    {
+      "id": "commodity-agri",
+      "grade": "C",
+      "title": "농산물",
+      "category": "금원자재",
+      "contentType": "concept",
+      "inferredKind": "개념",
+      "sections": 5,
+      "checklist": true,
+      "sources": true,
+      "priorityHints": []
+    },
+    {
+      "id": "commodity-basics",
+      "grade": "C",
+      "title": "원자재 기초",
+      "category": "금원자재",
+      "contentType": "risk",
+      "inferredKind": "개념",
+      "sections": 5,
+      "checklist": true,
+      "sources": true,
+      "priorityHints": [
+        "선수지식/첫페이지"
+      ]
+    },
+    {
+      "id": "commodity-oil",
+      "grade": "C",
+      "title": "에너지(유가)",
+      "category": "금원자재",
+      "contentType": "risk",
+      "inferredKind": "개념",
+      "sections": 5,
+      "checklist": true,
+      "sources": true,
+      "priorityHints": []
+    },
+    {
+      "id": "commodity-risk",
+      "grade": "C",
+      "title": "원자재 투자 위험",
+      "category": "금원자재",
+      "contentType": "risk",
+      "inferredKind": "개념",
+      "sections": 5,
+      "checklist": true,
+      "sources": true,
+      "priorityHints": []
+    },
+    {
+      "id": "econ-bond-link",
+      "grade": "C",
+      "title": "지표→채권",
+      "category": "경제시장",
+      "contentType": "concept",
+      "inferredKind": "개념",
+      "sections": 5,
+      "checklist": true,
+      "sources": true,
+      "priorityHints": [
+        "경제지표"
+      ]
+    },
+    {
+      "id": "econ-cpi",
+      "grade": "C",
+      "title": "물가(CPI)",
+      "category": "경제시장",
+      "contentType": "concept",
+      "inferredKind": "개념",
+      "sections": 5,
+      "checklist": true,
+      "sources": true,
+      "priorityHints": [
+        "경제지표"
+      ]
+    },
+    {
+      "id": "econ-exchange",
+      "grade": "C",
+      "title": "환율",
+      "category": "경제시장",
+      "contentType": "concept",
+      "inferredKind": "개념",
+      "sections": 5,
+      "checklist": true,
+      "sources": true,
+      "priorityHints": [
+        "경제지표"
+      ]
+    },
+    {
+      "id": "econ-forex-personal",
+      "grade": "C",
+      "title": "환율과 개인 재무",
+      "category": "경제시장",
+      "contentType": "concept",
+      "inferredKind": "개념",
+      "sections": 5,
+      "checklist": true,
+      "sources": true,
+      "priorityHints": [
+        "경제지표"
+      ]
+    },
+    {
+      "id": "econ-gdp",
+      "grade": "C",
+      "title": "GDP",
+      "category": "경제시장",
+      "contentType": "concept",
+      "inferredKind": "개념",
+      "sections": 5,
+      "checklist": true,
+      "sources": true,
+      "priorityHints": [
+        "경제지표"
+      ]
+    },
+    {
+      "id": "econ-housing",
+      "grade": "C",
+      "title": "주택·건설 지표",
+      "category": "경제시장",
+      "contentType": "concept",
+      "inferredKind": "개념",
+      "sections": 5,
+      "checklist": true,
+      "sources": true,
+      "priorityHints": [
+        "경제지표"
+      ]
+    },
+    {
+      "id": "econ-indicator-reading",
+      "grade": "C",
+      "title": "지표 읽기 순서",
+      "category": "경제시장",
+      "contentType": "actionGuide",
+      "inferredKind": "개념",
+      "sections": 5,
+      "checklist": true,
+      "sources": true,
+      "priorityHints": [
+        "경제지표"
+      ]
+    },
+    {
+      "id": "econ-interest-rate",
+      "grade": "C",
+      "title": "기준금리",
+      "category": "경제시장",
+      "contentType": "concept",
+      "inferredKind": "개념",
+      "sections": 5,
+      "checklist": true,
+      "sources": true,
+      "priorityHints": [
+        "경제지표"
+      ]
+    },
+    {
+      "id": "econ-pmi",
+      "grade": "C",
+      "title": "PMI·경기선행",
+      "category": "경제시장",
+      "contentType": "concept",
+      "inferredKind": "개념",
+      "sections": 5,
+      "checklist": true,
+      "sources": true,
+      "priorityHints": [
+        "경제지표"
+      ]
+    },
+    {
+      "id": "econ-stock-link",
+      "grade": "C",
+      "title": "지표→주식",
+      "category": "경제시장",
+      "contentType": "risk",
+      "inferredKind": "개념",
+      "sections": 5,
+      "checklist": true,
+      "sources": true,
+      "priorityHints": [
+        "경제지표"
+      ]
+    },
+    {
+      "id": "econ-trade",
+      "grade": "C",
+      "title": "수출·무역",
+      "category": "경제시장",
+      "contentType": "concept",
+      "inferredKind": "개념",
+      "sections": 5,
+      "checklist": true,
+      "sources": true,
+      "priorityHints": [
+        "경제지표"
+      ]
+    },
+    {
+      "id": "econ-unemployment",
+      "grade": "C",
+      "title": "고용·실업",
+      "category": "경제시장",
+      "contentType": "concept",
+      "inferredKind": "개념",
+      "sections": 5,
+      "checklist": true,
+      "sources": true,
+      "priorityHints": [
+        "경제지표"
+      ]
+    },
+    {
+      "id": "econ-yield-curve",
+      "grade": "C",
+      "title": "수익률 곡선",
+      "category": "경제시장",
+      "contentType": "concept",
+      "inferredKind": "개념",
+      "sections": 5,
+      "checklist": true,
+      "sources": true,
+      "priorityHints": [
+        "경제지표"
+      ]
+    },
+    {
+      "id": "etf-basics",
+      "grade": "C",
+      "title": "ETF 기초",
+      "category": "주식ETF",
+      "contentType": "concept",
+      "inferredKind": "개념",
+      "sections": 5,
+      "checklist": true,
+      "sources": true,
+      "priorityHints": [
+        "선수지식/첫페이지",
+        "투자위험"
+      ]
+    },
+    {
+      "id": "etf-delisting",
+      "grade": "C",
+      "title": "상장폐지",
+      "category": "주식ETF",
+      "contentType": "concept",
+      "inferredKind": "개념",
+      "sections": 5,
+      "checklist": true,
+      "sources": true,
+      "priorityHints": [
+        "투자위험"
+      ]
+    },
+    {
+      "id": "etf-distribution",
+      "grade": "C",
+      "title": "분배금",
+      "category": "주식ETF",
+      "contentType": "concept",
+      "inferredKind": "개념",
+      "sections": 5,
+      "checklist": true,
+      "sources": true,
+      "priorityHints": [
+        "투자위험"
+      ]
+    },
+    {
+      "id": "etf-expense",
+      "grade": "C",
+      "title": "총보수",
+      "category": "주식ETF",
+      "contentType": "concept",
+      "inferredKind": "개념",
+      "sections": 5,
+      "checklist": true,
+      "sources": true,
+      "priorityHints": [
+        "투자위험"
+      ]
+    },
+    {
+      "id": "etf-hedge",
+      "grade": "C",
+      "title": "환헤지",
+      "category": "주식ETF",
+      "contentType": "concept",
+      "inferredKind": "개념",
+      "sections": 5,
+      "checklist": true,
+      "sources": true,
+      "priorityHints": [
+        "투자위험"
+      ]
+    },
+    {
+      "id": "etf-index",
+      "grade": "C",
+      "title": "기초지수",
+      "category": "주식ETF",
+      "contentType": "concept",
+      "inferredKind": "개념",
+      "sections": 5,
+      "checklist": true,
+      "sources": true,
+      "priorityHints": [
+        "투자위험"
+      ]
+    },
+    {
+      "id": "etf-leverage-inverse",
+      "grade": "C",
+      "title": "레버리지·인버스",
+      "category": "주식ETF",
+      "contentType": "risk",
+      "inferredKind": "개념",
+      "sections": 5,
+      "checklist": true,
+      "sources": true,
+      "priorityHints": [
+        "투자위험"
+      ]
+    },
+    {
+      "id": "etf-premium-discount",
+      "grade": "C",
+      "title": "괴리율",
+      "category": "주식ETF",
+      "contentType": "concept",
+      "inferredKind": "개념",
+      "sections": 5,
+      "checklist": true,
+      "sources": true,
+      "priorityHints": [
+        "투자위험"
+      ]
+    },
+    {
+      "id": "etf-synthetic-physical",
+      "grade": "C",
+      "title": "합성·실물",
+      "category": "주식ETF",
+      "contentType": "risk",
+      "inferredKind": "개념",
+      "sections": 5,
+      "checklist": true,
+      "sources": true,
+      "priorityHints": [
+        "투자위험"
+      ]
+    },
+    {
+      "id": "etf-tracking-error",
+      "grade": "C",
+      "title": "추적오차",
+      "category": "주식ETF",
+      "contentType": "concept",
+      "inferredKind": "개념",
+      "sections": 5,
+      "checklist": true,
+      "sources": true,
+      "priorityHints": [
+        "투자위험"
+      ]
+    },
+    {
+      "id": "etf-volume",
+      "grade": "C",
+      "title": "거래량",
+      "category": "주식ETF",
+      "contentType": "concept",
+      "inferredKind": "개념",
+      "sections": 5,
+      "checklist": true,
+      "sources": true,
+      "priorityHints": [
+        "투자위험"
+      ]
+    },
+    {
+      "id": "fraud-app",
+      "grade": "C",
+      "title": "악성 앱·원격제어",
+      "category": "금융사기",
+      "contentType": "risk",
+      "inferredKind": "사기예방",
+      "sections": 5,
+      "checklist": true,
+      "sources": true,
+      "priorityHints": [
+        "금융사기"
+      ]
+    },
+    {
+      "id": "fraud-elderly",
+      "grade": "C",
+      "title": "고령층·취약계층",
+      "category": "금융사기",
+      "contentType": "risk",
+      "inferredKind": "사기예방",
+      "sections": 5,
+      "checklist": true,
+      "sources": true,
+      "priorityHints": [
+        "금융사기"
+      ]
+    },
+    {
+      "id": "fraud-identity",
+      "grade": "C",
+      "title": "신원 도용",
+      "category": "금융사기",
+      "contentType": "risk",
+      "inferredKind": "사기예방",
+      "sections": 5,
+      "checklist": true,
+      "sources": true,
+      "priorityHints": [
+        "금융사기"
+      ]
+    },
+    {
+      "id": "fraud-loan",
+      "grade": "C",
+      "title": "대출 사기",
+      "category": "금융사기",
+      "contentType": "risk",
+      "inferredKind": "사기예방",
+      "sections": 5,
+      "checklist": true,
+      "sources": true,
+      "priorityHints": [
+        "금융사기"
+      ]
+    },
+    {
+      "id": "fraud-overview",
+      "grade": "C",
+      "title": "금융사기 개요",
+      "category": "금융사기",
+      "contentType": "risk",
+      "inferredKind": "사기예방",
+      "sections": 5,
+      "checklist": true,
+      "sources": true,
+      "priorityHints": [
+        "선수지식/첫페이지",
+        "금융사기"
+      ]
+    },
+    {
+      "id": "fraud-phishing",
+      "grade": "C",
+      "title": "피싱·스미싱",
+      "category": "금융사기",
+      "contentType": "risk",
+      "inferredKind": "사기예방",
+      "sections": 5,
+      "checklist": true,
+      "sources": true,
+      "priorityHints": [
+        "금융사기"
+      ]
+    },
+    {
+      "id": "fraud-records",
+      "grade": "C",
+      "title": "피해 예방 기록",
+      "category": "금융사기",
+      "contentType": "risk",
+      "inferredKind": "사기예방",
+      "sections": 5,
+      "checklist": true,
+      "sources": true,
+      "priorityHints": [
+        "금융사기"
+      ]
+    },
+    {
+      "id": "gold-cost-compare",
+      "grade": "C",
+      "title": "실물 vs 금융상품 비용",
+      "category": "금원자재",
+      "contentType": "calculation",
+      "inferredKind": "비교",
+      "sections": 5,
+      "checklist": true,
+      "sources": false,
+      "priorityHints": [
+        "투자위험"
+      ]
+    },
+    {
+      "id": "gold-financial",
+      "grade": "C",
+      "title": "금융상품(ETF·펀드·계정)",
+      "category": "금원자재",
+      "contentType": "concept",
+      "inferredKind": "개념",
+      "sections": 5,
+      "checklist": true,
+      "sources": true,
+      "priorityHints": [
+        "투자위험"
+      ]
+    },
+    {
+      "id": "gold-physical",
+      "grade": "C",
+      "title": "실물 금",
+      "category": "금원자재",
+      "contentType": "concept",
+      "inferredKind": "개념",
+      "sections": 5,
+      "checklist": true,
+      "sources": true,
+      "priorityHints": [
+        "투자위험"
+      ]
+    },
+    {
+      "id": "gold-portfolio",
+      "grade": "C",
+      "title": "금·원자재 비중",
+      "category": "금원자재",
+      "contentType": "concept",
+      "inferredKind": "개념",
+      "sections": 5,
+      "checklist": true,
+      "sources": true,
+      "priorityHints": [
+        "자산배분",
+        "투자위험"
+      ]
+    },
+    {
+      "id": "gold-role",
+      "grade": "C",
+      "title": "금의 역할",
+      "category": "금원자재",
+      "contentType": "concept",
+      "inferredKind": "개념",
+      "sections": 5,
+      "checklist": true,
+      "sources": true,
+      "priorityHints": [
+        "투자위험"
+      ]
+    },
+    {
+      "id": "insurance-basics",
+      "grade": "C",
+      "title": "보험 기초",
+      "category": "보험",
+      "contentType": "concept",
+      "inferredKind": "개념",
+      "sections": 5,
+      "checklist": true,
+      "sources": true,
+      "priorityHints": [
+        "선수지식/첫페이지",
+        "보험"
+      ]
+    },
+    {
+      "id": "insurance-gap",
+      "grade": "C",
+      "title": "보장 공백·중복",
+      "category": "보험",
+      "contentType": "checklist",
+      "inferredKind": "체크리스트",
+      "sections": 5,
+      "checklist": true,
+      "sources": true,
+      "priorityHints": [
+        "보험"
+      ]
+    },
+    {
+      "id": "insurance-life",
+      "grade": "C",
+      "title": "생명·사망 보장",
+      "category": "보험",
+      "contentType": "concept",
+      "inferredKind": "개념",
+      "sections": 5,
+      "checklist": true,
+      "sources": true,
+      "priorityHints": [
+        "보험"
+      ]
+    },
+    {
+      "id": "insurance-loss-size",
+      "grade": "C",
+      "title": "손실 규모",
+      "category": "보험",
+      "contentType": "concept",
+      "inferredKind": "개념",
+      "sections": 5,
+      "checklist": true,
+      "sources": true,
+      "priorityHints": [
+        "보험"
+      ]
+    },
+    {
+      "id": "insurance-premium",
+      "grade": "C",
+      "title": "보험료 부담",
+      "category": "보험",
+      "contentType": "concept",
+      "inferredKind": "개념",
+      "sections": 5,
+      "checklist": true,
+      "sources": true,
+      "priorityHints": [
+        "보험"
+      ]
+    },
+    {
+      "id": "insurance-probability",
+      "grade": "C",
+      "title": "발생 확률",
+      "category": "보험",
+      "contentType": "concept",
+      "inferredKind": "개념",
+      "sections": 5,
+      "checklist": true,
+      "sources": true,
+      "priorityHints": [
+        "보험"
+      ]
+    },
+    {
+      "id": "insurance-property",
+      "grade": "C",
+      "title": "화재·재물",
+      "category": "보험",
+      "contentType": "concept",
+      "inferredKind": "개념",
+      "sections": 5,
+      "checklist": true,
+      "sources": true,
+      "priorityHints": [
+        "보험"
+      ]
+    },
+    {
+      "id": "insurance-review",
+      "grade": "C",
+      "title": "보험 정기 점검",
+      "category": "보험",
+      "contentType": "checklist",
+      "inferredKind": "체크리스트",
+      "sections": 5,
+      "checklist": true,
+      "sources": true,
+      "priorityHints": [
+        "보험"
+      ]
+    },
+    {
+      "id": "loan-affordable-vs-available",
+      "grade": "C",
+      "title": "감당 가능액 vs 대출 가능액",
+      "category": "대출신용",
+      "contentType": "actionGuide",
+      "inferredKind": "절차",
+      "sections": 5,
+      "checklist": true,
+      "sources": false,
+      "priorityHints": [
+        "부동산·대출"
+      ]
+    },
+    {
+      "id": "loan-card",
+      "grade": "C",
+      "title": "카드론·현금서비스",
+      "category": "대출신용",
+      "contentType": "risk",
+      "inferredKind": "개념",
+      "sections": 5,
+      "checklist": true,
+      "sources": true,
+      "priorityHints": [
+        "부동산·대출"
+      ]
+    },
+    {
+      "id": "loan-checklist",
+      "grade": "C",
+      "title": "대출 점검",
+      "category": "대출신용",
+      "contentType": "checklist",
+      "inferredKind": "체크리스트",
+      "sections": 5,
+      "checklist": true,
+      "sources": true,
+      "priorityHints": [
+        "부동산·대출"
+      ]
+    },
+    {
+      "id": "loan-credit",
+      "grade": "C",
+      "title": "신용대출",
+      "category": "대출신용",
+      "contentType": "concept",
+      "inferredKind": "개념",
+      "sections": 5,
+      "checklist": true,
+      "sources": true,
+      "priorityHints": [
+        "부동산·대출"
+      ]
+    },
+    {
+      "id": "loan-credit-score",
+      "grade": "C",
+      "title": "신용점수",
+      "category": "대출신용",
+      "contentType": "concept",
+      "inferredKind": "개념",
+      "sections": 5,
+      "checklist": true,
+      "sources": true,
+      "priorityHints": [
+        "부동산·대출"
+      ]
+    },
+    {
+      "id": "loan-delinquency",
+      "grade": "C",
+      "title": "연체·신용영향",
+      "category": "대출신용",
+      "contentType": "concept",
+      "inferredKind": "개념",
+      "sections": 5,
+      "checklist": true,
+      "sources": true,
+      "priorityHints": [
+        "부동산·대출"
+      ]
+    },
+    {
+      "id": "loan-dsr",
+      "grade": "C",
+      "title": "DSR(총부채원리금상환비율)",
+      "category": "대출신용",
+      "contentType": "officialCheck",
+      "inferredKind": "개념",
+      "sections": 5,
+      "checklist": true,
+      "sources": true,
+      "priorityHints": [
+        "부동산·대출"
+      ]
+    },
+    {
+      "id": "loan-guarantee",
+      "grade": "C",
+      "title": "보증·연대보증",
+      "category": "대출신용",
+      "contentType": "risk",
+      "inferredKind": "개념",
+      "sections": 5,
+      "checklist": true,
+      "sources": true,
+      "priorityHints": [
+        "부동산·대출"
+      ]
+    },
+    {
+      "id": "loan-jeonse",
+      "grade": "C",
+      "title": "전세자금대출",
+      "category": "대출신용",
+      "contentType": "concept",
+      "inferredKind": "개념",
+      "sections": 5,
+      "checklist": true,
+      "sources": true,
+      "priorityHints": [
+        "부동산·대출"
+      ]
+    },
+    {
+      "id": "loan-ltv",
+      "grade": "C",
+      "title": "LTV(담보인정비율)",
+      "category": "대출신용",
+      "contentType": "officialCheck",
+      "inferredKind": "개념",
+      "sections": 5,
+      "checklist": true,
+      "sources": true,
+      "priorityHints": [
+        "부동산·대출"
+      ]
+    },
+    {
+      "id": "loan-mortgage",
+      "grade": "C",
+      "title": "주택담보대출",
+      "category": "대출신용",
+      "contentType": "concept",
+      "inferredKind": "개념",
+      "sections": 5,
+      "checklist": true,
+      "sources": true,
+      "priorityHints": [
+        "부동산·대출"
+      ]
+    },
+    {
+      "id": "loan-overdraft",
+      "grade": "C",
+      "title": "마이너스통장",
+      "category": "대출신용",
+      "contentType": "concept",
+      "inferredKind": "개념",
+      "sections": 5,
+      "checklist": true,
+      "sources": true,
+      "priorityHints": [
+        "부동산·대출"
+      ]
+    },
+    {
+      "id": "loan-prepayment",
+      "grade": "C",
+      "title": "중도상환",
+      "category": "대출신용",
+      "contentType": "concept",
+      "inferredKind": "개념",
+      "sections": 5,
+      "checklist": true,
+      "sources": true,
+      "priorityHints": [
+        "부동산·대출"
+      ]
+    },
+    {
+      "id": "loan-repayment-methods",
+      "grade": "C",
+      "title": "상환 방식",
+      "category": "대출신용",
+      "contentType": "calculation",
+      "inferredKind": "개념",
+      "sections": 5,
+      "checklist": true,
+      "sources": true,
+      "priorityHints": [
+        "부동산·대출"
+      ]
+    },
+    {
+      "id": "loan-restructuring",
+      "grade": "C",
+      "title": "채무조정",
+      "category": "대출신용",
+      "contentType": "concept",
+      "inferredKind": "개념",
+      "sections": 5,
+      "checklist": true,
+      "sources": true,
+      "priorityHints": [
+        "부동산·대출"
+      ]
+    },
+    {
+      "id": "loan-student",
+      "grade": "C",
+      "title": "학자금대출",
+      "category": "대출신용",
+      "contentType": "concept",
+      "inferredKind": "개념",
+      "sections": 5,
+      "checklist": true,
+      "sources": true,
+      "priorityHints": [
+        "부동산·대출"
+      ]
+    },
+    {
+      "id": "pension-emergency",
+      "grade": "C",
+      "title": "은퇴 후 비상자금",
+      "category": "연금노후",
+      "contentType": "concept",
+      "inferredKind": "개념",
+      "sections": 5,
+      "checklist": true,
+      "sources": true,
+      "priorityHints": [
+        "연금·은퇴"
+      ]
+    },
+    {
+      "id": "pension-essential-discretionary",
+      "grade": "C",
+      "title": "필수 vs 선택 비용",
+      "category": "연금노후",
+      "contentType": "concept",
+      "inferredKind": "개념",
+      "sections": 5,
+      "checklist": true,
+      "sources": true,
+      "priorityHints": [
+        "연금·은퇴"
+      ]
+    },
+    {
+      "id": "pension-inheritance",
+      "grade": "C",
+      "title": "상속·증여 검토",
+      "category": "연금노후",
+      "contentType": "concept",
+      "inferredKind": "개념",
+      "sections": 5,
+      "checklist": true,
+      "sources": true,
+      "priorityHints": [
+        "연금·은퇴"
+      ]
+    },
+    {
+      "id": "pension-irp",
+      "grade": "C",
+      "title": "IRP와 계좌 이전",
+      "category": "연금노후",
+      "contentType": "concept",
+      "inferredKind": "개념",
+      "sections": 5,
+      "checklist": true,
+      "sources": true,
+      "priorityHints": [
+        "연금·은퇴"
+      ]
+    },
+    {
+      "id": "pension-living-cost",
+      "grade": "C",
+      "title": "은퇴 후 생활비",
+      "category": "연금노후",
+      "contentType": "calculation",
+      "inferredKind": "개념",
+      "sections": 5,
+      "checklist": true,
+      "sources": true,
+      "priorityHints": [
+        "연금·은퇴"
+      ]
+    },
+    {
+      "id": "pension-medical",
+      "grade": "C",
+      "title": "노후 의료비",
+      "category": "연금노후",
+      "contentType": "concept",
+      "inferredKind": "개념",
+      "sections": 5,
+      "checklist": true,
+      "sources": true,
+      "priorityHints": [
+        "연금·은퇴"
+      ]
+    },
+    {
+      "id": "pension-retirement-age",
+      "grade": "C",
+      "title": "은퇴 시점·수령 시점",
+      "category": "연금노후",
+      "contentType": "concept",
+      "inferredKind": "개념",
+      "sections": 5,
+      "checklist": true,
+      "sources": true,
+      "priorityHints": [
+        "연금·은퇴"
+      ]
+    },
+    {
+      "id": "pension-review-cycle",
+      "grade": "C",
+      "title": "노후 계획 재점검",
+      "category": "연금노후",
+      "contentType": "checklist",
+      "inferredKind": "체크리스트",
+      "sections": 5,
+      "checklist": true,
+      "sources": true,
+      "priorityHints": [
+        "연금·은퇴"
+      ]
+    },
+    {
+      "id": "pension-scenario-base",
+      "grade": "C",
+      "title": "기준 시나리오",
+      "category": "연금노후",
+      "contentType": "scenario",
+      "inferredKind": "사례",
+      "sections": 5,
+      "checklist": true,
+      "sources": true,
+      "priorityHints": [
+        "연금·은퇴"
+      ]
+    },
+    {
+      "id": "pension-scenario-high",
+      "grade": "C",
+      "title": "낙관 시나리오",
+      "category": "연금노후",
+      "contentType": "scenario",
+      "inferredKind": "사례",
+      "sections": 5,
+      "checklist": true,
+      "sources": true,
+      "priorityHints": [
+        "연금·은퇴"
+      ]
+    },
+    {
+      "id": "pension-scenario-low",
+      "grade": "C",
+      "title": "보수 시나리오",
+      "category": "연금노후",
+      "contentType": "scenario",
+      "inferredKind": "사례",
+      "sections": 5,
+      "checklist": true,
+      "sources": true,
+      "priorityHints": [
+        "연금·은퇴"
+      ]
+    },
+    {
+      "id": "re-acquisition-tax",
+      "grade": "C",
+      "title": "취득세 개념",
+      "category": "부동산",
+      "contentType": "concept",
+      "inferredKind": "개념",
+      "sections": 5,
+      "checklist": true,
+      "sources": true,
+      "priorityHints": [
+        "부동산·대출"
+      ]
+    },
+    {
+      "id": "re-basics",
+      "grade": "C",
+      "title": "부동산 기초",
+      "category": "부동산",
+      "contentType": "concept",
+      "inferredKind": "개념",
+      "sections": 5,
+      "checklist": true,
+      "sources": true,
+      "priorityHints": [
+        "선수지식/첫페이지",
+        "부동산·대출"
+      ]
+    },
+    {
+      "id": "re-commercial",
+      "grade": "C",
+      "title": "오피스텔·상가",
+      "category": "부동산",
+      "contentType": "concept",
+      "inferredKind": "개념",
+      "sections": 5,
+      "checklist": true,
+      "sources": true,
+      "priorityHints": [
+        "부동산·대출"
+      ]
+    },
+    {
+      "id": "re-jeonse",
+      "grade": "C",
+      "title": "전월세와 전환",
+      "category": "부동산",
+      "contentType": "concept",
+      "inferredKind": "개념",
+      "sections": 5,
+      "checklist": true,
+      "sources": true,
+      "priorityHints": [
+        "부동산·대출"
+      ]
+    },
+    {
+      "id": "re-location",
+      "grade": "C",
+      "title": "입지·정보 활용",
+      "category": "부동산",
+      "contentType": "concept",
+      "inferredKind": "개념",
+      "sections": 5,
+      "checklist": true,
+      "sources": true,
+      "priorityHints": [
+        "부동산·대출"
+      ]
+    },
+    {
+      "id": "re-new-used",
+      "grade": "C",
+      "title": "신규·기존 주택",
+      "category": "부동산",
+      "contentType": "concept",
+      "inferredKind": "개념",
+      "sections": 5,
+      "checklist": true,
+      "sources": true,
+      "priorityHints": [
+        "부동산·대출"
+      ]
+    },
+    {
+      "id": "re-property-tax",
+      "grade": "C",
+      "title": "보유세(재산세·종부세)",
+      "category": "부동산",
+      "contentType": "concept",
+      "inferredKind": "개념",
+      "sections": 5,
+      "checklist": true,
+      "sources": true,
+      "priorityHints": [
+        "부동산·대출"
+      ]
+    },
+    {
+      "id": "savings-deposit-vs-installment",
+      "grade": "C",
+      "title": "예금과 적금의 차이",
+      "category": "예금적금",
+      "contentType": "concept",
+      "inferredKind": "비교",
+      "sections": 5,
+      "checklist": true,
+      "sources": true,
+      "priorityHints": []
+    },
+    {
+      "id": "savings-early-withdrawal",
+      "grade": "C",
+      "title": "중도해지",
+      "category": "예금적금",
+      "contentType": "risk",
+      "inferredKind": "개념",
+      "sections": 5,
+      "checklist": true,
+      "sources": true,
+      "priorityHints": []
+    },
+    {
+      "id": "savings-emergency",
+      "grade": "C",
+      "title": "비상자금 관리",
+      "category": "예금적금",
+      "contentType": "concept",
+      "inferredKind": "개념",
+      "sections": 5,
+      "checklist": true,
+      "sources": true,
+      "priorityHints": []
+    },
+    {
+      "id": "savings-goals",
+      "grade": "C",
+      "title": "저축 목표",
+      "category": "예금적금",
+      "contentType": "concept",
+      "inferredKind": "개념",
+      "sections": 5,
+      "checklist": true,
+      "sources": true,
+      "priorityHints": []
+    },
+    {
+      "id": "savings-maturity-ladder",
+      "grade": "C",
+      "title": "만기 분산",
+      "category": "예금적금",
+      "contentType": "concept",
+      "inferredKind": "개념",
+      "sections": 5,
+      "checklist": true,
+      "sources": true,
+      "priorityHints": []
+    },
+    {
+      "id": "savings-rate-compare",
+      "grade": "C",
+      "title": "금리 비교",
+      "category": "예금적금",
+      "contentType": "concept",
+      "inferredKind": "비교",
+      "sections": 5,
+      "checklist": true,
+      "sources": true,
+      "priorityHints": []
+    },
+    {
+      "id": "savings-simple-compound",
+      "grade": "C",
+      "title": "단리와 복리",
+      "category": "예금적금",
+      "contentType": "calculation",
+      "inferredKind": "개념",
+      "sections": 5,
+      "checklist": true,
+      "sources": true,
+      "priorityHints": []
+    },
+    {
+      "id": "savings-tax-interest",
+      "grade": "C",
+      "title": "세전·세후 이자",
+      "category": "예금적금",
+      "contentType": "concept",
+      "inferredKind": "개념",
+      "sections": 5,
+      "checklist": true,
+      "sources": true,
+      "priorityHints": []
+    },
+    {
+      "id": "tax-basics",
+      "grade": "C",
+      "title": "세금 기초",
+      "category": "세금",
+      "contentType": "tax",
+      "inferredKind": "세금·제도",
+      "sections": 5,
+      "checklist": true,
+      "sources": true,
+      "priorityHints": [
+        "선수지식/첫페이지",
+        "세금"
+      ]
+    },
+    {
+      "id": "tax-calculator-use",
+      "grade": "C",
+      "title": "세금 계산기 활용",
+      "category": "세금",
+      "contentType": "officialCheck",
+      "inferredKind": "세금·제도",
+      "sections": 5,
+      "checklist": true,
+      "sources": true,
+      "priorityHints": [
+        "세금"
+      ]
+    },
+    {
+      "id": "tax-capital-gains-stock",
+      "grade": "C",
+      "title": "주식 양도소득",
+      "category": "세금",
+      "contentType": "tax",
+      "inferredKind": "세금·제도",
+      "sections": 5,
+      "checklist": true,
+      "sources": true,
+      "priorityHints": [
+        "세금"
+      ]
+    },
+    {
+      "id": "tax-credit",
+      "grade": "C",
+      "title": "세액공제·감면",
+      "category": "세금",
+      "contentType": "tax",
+      "inferredKind": "세금·제도",
+      "sections": 5,
+      "checklist": true,
+      "sources": true,
+      "priorityHints": [
+        "세금"
+      ]
+    },
+    {
+      "id": "tax-deduction",
+      "grade": "C",
+      "title": "소득공제",
+      "category": "세금",
+      "contentType": "tax",
+      "inferredKind": "세금·제도",
+      "sections": 5,
+      "checklist": true,
+      "sources": true,
+      "priorityHints": [
+        "세금"
+      ]
+    },
+    {
+      "id": "tax-earned-income",
+      "grade": "C",
+      "title": "근로소득",
+      "category": "세금",
+      "contentType": "tax",
+      "inferredKind": "세금·제도",
+      "sections": 5,
+      "checklist": true,
+      "sources": true,
+      "priorityHints": [
+        "세금"
+      ]
+    },
+    {
+      "id": "tax-gift",
+      "grade": "C",
+      "title": "증여세 개념",
+      "category": "세금",
+      "contentType": "tax",
+      "inferredKind": "세금·제도",
+      "sections": 5,
+      "checklist": true,
+      "sources": true,
+      "priorityHints": [
+        "세금"
+      ]
+    },
+    {
+      "id": "tax-inheritance",
+      "grade": "C",
+      "title": "상속세 개념",
+      "category": "세금",
+      "contentType": "tax",
+      "inferredKind": "세금·제도",
+      "sections": 5,
+      "checklist": true,
+      "sources": true,
+      "priorityHints": [
+        "세금"
+      ]
+    },
+    {
+      "id": "tax-interest-dividend",
+      "grade": "C",
+      "title": "이자·배당소득",
+      "category": "세금",
+      "contentType": "tax",
+      "inferredKind": "세금·제도",
+      "sections": 5,
+      "checklist": true,
+      "sources": true,
+      "priorityHints": [
+        "세금"
+      ]
+    },
+    {
+      "id": "tax-separate",
+      "grade": "C",
+      "title": "분리과세",
+      "category": "세금",
+      "contentType": "tax",
+      "inferredKind": "세금·제도",
+      "sections": 5,
+      "checklist": true,
+      "sources": true,
+      "priorityHints": [
+        "세금"
+      ]
+    },
+    {
+      "id": "tax-vat",
+      "grade": "C",
+      "title": "부가가치세(개념)",
+      "category": "세금",
+      "contentType": "tax",
+      "inferredKind": "세금·제도",
+      "sections": 5,
+      "checklist": true,
+      "sources": true,
+      "priorityHints": [
+        "세금"
+      ]
+    },
+    {
+      "id": "tax-year-end",
+      "grade": "C",
+      "title": "연말·연간 점검",
+      "category": "세금",
+      "contentType": "checklist",
+      "inferredKind": "세금·제도",
+      "sections": 5,
+      "checklist": true,
+      "sources": true,
+      "priorityHints": [
+        "세금"
+      ]
+    },
+    {
+      "id": "econ-no-realtime",
+      "grade": "D",
+      "title": "실시간 데이터 없음 안내",
+      "category": "경제시장",
+      "contentType": "officialCheck",
+      "inferredKind": "개념",
+      "sections": 4,
+      "checklist": true,
+      "sources": true,
+      "priorityHints": [
+        "경제지표"
+      ]
+    },
+    {
+      "id": "fraud-report-police",
+      "grade": "D",
+      "title": "경찰·수사기관 신고",
+      "category": "금융사기",
+      "contentType": "officialCheck",
+      "inferredKind": "사기예방",
+      "sections": 4,
+      "checklist": true,
+      "sources": false,
+      "priorityHints": [
+        "금융사기"
+      ]
+    }
+  ]
+}

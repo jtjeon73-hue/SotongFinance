@@ -282,4 +282,27 @@ const lifePaths = <LifePath>[
       ),
     ],
   ),
+  LifePath(
+    id: 'path-easy-elderly',
+    title: '쉬운 금융(고령·보호자)',
+    summary: '큰 글씨·사기예방·현금·보험·연금 기본만 순서대로.',
+    stages: [LifeStage.retired, LifeStage.preRetirement, LifeStage.family],
+    steps: [
+      LifePathStep(
+        title: '안전과 기본',
+        contentIds: [
+          'fraud-elderly',
+          'fraud-warning-signals',
+          'mm-emergency-fund',
+          'pension-overview',
+          'mm-couple-finance',
+        ],
+        numbersToCheck: ['현금 비상', '월 필수비', '연락처·서류'],
+        actions: ['상단 큰 글씨 켜기', '공식창구만 사용', '가족·보호자와 점검'],
+        mistakes: ['급한 송금', '검색광고 전화', '비밀번호 공유'],
+        calculatorRoutes: ['/tools/cashflow', '/annual-review'],
+        officialSourceIds: ['src-fss', 'src-nps', 'src-fine'],
+      ),
+    ],
+  ),
 ];
