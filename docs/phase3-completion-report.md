@@ -45,16 +45,16 @@ Flutter Web 금융교육 **3단계: 전문가 심화**.
 |------|------|
 | dart format | 통과 |
 | flutter analyze --fatal-infos | 통과 |
-| flutter test | 63+ passed (갱신 후 재확인) |
+| flutter test | 64 passed |
 | flutter build web --release | 통과 |
-| 반응형 E2E | push·배포 후 `tool/e2e/responsive_check.mjs` |
+| 반응형 E2E | 통과 (ISSUE_COUNT=0, HTTP/Flutter fail 0) |
 
-## GitHub Actions — 실행 후 기입
+## GitHub Actions
 
 | 항목 | 값 |
 |------|-----|
-| 워크플로 실행 URL | `________` |
-| PR / main 배포 상태 | `________` |
+| 워크플로 실행 URL | https://github.com/jtjeon73-hue/SotongFinance/actions/runs/29993888217 |
+| PR / main 배포 상태 | success (build-and-test + deploy) |
 | Secret `FIREBASE_SERVICE_ACCOUNT_SOTONG_FINANCE` | 기존 유지(변경·재생성 없음) |
 
 ## 개인정보

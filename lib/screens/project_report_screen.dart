@@ -56,7 +56,8 @@ class ProjectReportScreen extends StatelessWidget {
       testStatus:
           'format / analyze --fatal-infos / flutter test / web release / 반응형 E2E',
       commitHash: '4aea013744ce7562b8b067e41cda0aceec4c8484',
-      actionsStatus: 'push 후 build-and-test · Firebase Hosting 자동배포 확인',
+      actionsStatus:
+          'success · https://github.com/jtjeon73-hue/SotongFinance/actions/runs/29993888217',
       firebaseProjectId: AppConstants.firebaseProjectId,
       hostingUrl: AppConstants.hostingUrl,
       qualitySummary:
