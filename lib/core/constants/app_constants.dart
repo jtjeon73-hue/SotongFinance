@@ -5,7 +5,7 @@ class AppConstants {
   static const String packageName = 'sotong_finance';
   static const String firebaseProjectId = 'sotong-finance';
   static const String hostingUrl = 'https://sotong-finance.web.app';
-  static const String phase = '1단계';
+  static const String phase = '2단계';
   static const String referenceYear = '2026';
   static const String checkedAt = '2026-07-23';
   static const String reviewDueAt = '2026-10-23';
@@ -22,7 +22,10 @@ class AppConstants {
       '머물며 서버에 저장되지 않습니다.';
 
   static const String noServerStorageNotice =
-      '1단계에서는 계산기 입력값과 민감한 재무정보를 서버에 저장하지 않습니다.';
+      '계산기·재무진단 입력값과 민감한 재무정보를 서버·쿠키·로그에 저장하지 않습니다.';
+
+  static const String stressScenarioDisclaimer =
+      '스트레스 시나리오는 가정에 따른 교육용 비교이며 미래 예측이 아닙니다.';
 
   static const double contentMaxWidth = 920;
   static const double sidebarWidth = 280;

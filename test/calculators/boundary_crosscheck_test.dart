@@ -115,7 +115,7 @@ void main() {
   });
 
   test('all 14 calculators respond', () {
-    expect(calculatorCatalog.length, 14);
+    expect(calculatorCatalog.length, greaterThanOrEqualTo(27));
     for (final c in calculatorCatalog) {
       final values = <String, double>{};
       for (final f in c.fields) {

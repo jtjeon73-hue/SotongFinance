@@ -64,7 +64,7 @@ void main() {
   });
 
   test('calculators have units and formulas', () {
-    expect(calculatorCatalog.length, 14);
+    expect(calculatorCatalog.length, greaterThanOrEqualTo(27));
     for (final c in calculatorCatalog) {
       expect(c.formula.trim(), isNotEmpty);
       expect(c.fields, isNotEmpty);

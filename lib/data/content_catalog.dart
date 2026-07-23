@@ -10,13 +10,14 @@ import 'insurance_data.dart';
 import 'loan_credit_data.dart';
 import 'money_management_data.dart';
 import 'pension_retirement_data.dart';
+import 'phase2_overrides.dart';
 import 'real_estate_data.dart';
 import 'savings_data.dart';
 import 'stock_etf_data.dart';
 import 'tax_data.dart';
 
-/// 전체 교육 콘텐츠 목록
-final allFinanceContent = <FinanceContent>[
+/// 전체 교육 콘텐츠 목록 (Phase2 오버라이드 적용)
+final allFinanceContent = _withPhase2Overrides(<FinanceContent>[
   ...financeBasicsContent,
   ...moneyManagementContent,
   ...savingsContent,
@@ -30,7 +31,12 @@ final allFinanceContent = <FinanceContent>[
   ...pensionRetirementContent,
   ...economyContent,
   ...fraudPreventionContent,
-];
+]);
+
+List<FinanceContent> _withPhase2Overrides(List<FinanceContent> base) {
+  assertPhase2OverridesComplete();
+  return [for (final c in base) phase2Overrides[c.id] ?? c];
+}
 
 FinanceContent? getById(String id) {
   final resolved = resolveContentId(id);

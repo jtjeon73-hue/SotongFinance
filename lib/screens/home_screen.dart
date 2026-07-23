@@ -61,6 +61,24 @@ class HomeScreen extends StatelessWidget {
           (e) => _LinkTile(title: e.$1.label, subtitle: e.$2, route: e.$3),
         ),
         const SizedBox(height: 28),
+        _SectionTitle('2단계 실무 도구'),
+        const SizedBox(height: 12),
+        _LinkTile(
+          title: '교육용 재무진단',
+          subtitle: '입력값은 브라우저에만 머물며 서버에 저장하지 않습니다',
+          route: '/diagnose',
+        ),
+        _LinkTile(
+          title: '생애주기 학습 경로',
+          subtitle: '사회초년생부터 연금 수령까지 점검 순서',
+          route: '/paths',
+        ),
+        _LinkTile(
+          title: '2단계 완료 보고',
+          subtitle: '품질·계산기·출처·검토기한 요약',
+          route: '/project/report',
+        ),
+        const SizedBox(height: 28),
         _SectionTitle('노후·연금 바로가기'),
         const SizedBox(height: 12),
         _LinkTile(
@@ -161,11 +179,14 @@ class _HeroBanner extends StatelessWidget {
             children: [
               Icon(Icons.account_balance, color: AppColors.gold, size: 36),
               const SizedBox(width: 12),
-              Text(
-                AppConstants.appName,
-                style: theme.textTheme.headlineMedium?.copyWith(
-                  color: Colors.white,
-                  fontWeight: FontWeight.w800,
+              Expanded(
+                child: Text(
+                  AppConstants.appName,
+                  style: theme.textTheme.headlineMedium?.copyWith(
+                    color: Colors.white,
+                    fontWeight: FontWeight.w800,
+                  ),
+                  overflow: TextOverflow.ellipsis,
                 ),
               ),
             ],

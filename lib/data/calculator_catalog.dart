@@ -204,6 +204,188 @@ const calculatorCatalog = <CalculatorDefinition>[
     example: '월 200만, 2%, 20년',
     route: '/tools/future-cost',
   ),
+  CalculatorDefinition(
+    id: 'calc-debt-burden',
+    title: '대출상환 부담',
+    purpose: '월소득 대비 상환액 비중을 교육용으로 봅니다.',
+    formula: '부담(%) = 월상환 ÷ 월소득 × 100',
+    fields: [
+      CalculatorField(key: 'payment', label: '월 상환합계', unit: '원'),
+      CalculatorField(key: 'income', label: '월소득', unit: '원'),
+    ],
+    limitations: ['DSR 공식 계산을 대체하지 않음'],
+    route: '/tools/debt-burden',
+  ),
+  CalculatorDefinition(
+    id: 'calc-emergency-months',
+    title: '비상자금 충당개월',
+    purpose: '현금성자산이 월 필수지출을 몇 개월 감당하는지 봅니다.',
+    formula: '개월 = 현금성 ÷ 월필수지출',
+    fields: [
+      CalculatorField(key: 'cash', label: '현금성자산', unit: '원'),
+      CalculatorField(key: 'essential', label: '월 필수지출', unit: '원'),
+    ],
+    limitations: ['직업·부양에 따라 목표 개월이 다름', '무조건 N개월 단정 금지'],
+    route: '/tools/emergency-months',
+  ),
+  CalculatorDefinition(
+    id: 'calc-net-rent',
+    title: '순임대현금흐름',
+    purpose: '연임대에서 연비용을 뺀 순현금흐름(교육용).',
+    formula: '순임대 = 연임대 − 연비용',
+    fields: [
+      CalculatorField(key: 'rent', label: '연임대소득', unit: '원'),
+      CalculatorField(key: 'costs', label: '연비용(공실·수선·세금·이자 등)', unit: '원'),
+    ],
+    limitations: ['가격상승 가정 없음', '세후 확정 아님'],
+    route: '/tools/net-rent',
+  ),
+  CalculatorDefinition(
+    id: 'calc-acquisition-cost',
+    title: '부동산 총취득비용 합계',
+    purpose: '매매가와 부대비용을 합산합니다(세율 미내장).',
+    formula: '합계 = 매매가 + 세금추정 + 중개 + 법무 + 수리 + 기타',
+    fields: [
+      CalculatorField(key: 'price', label: '매매가', unit: '원'),
+      CalculatorField(key: 'tax', label: '취득관련세금(본인추정)', unit: '원'),
+      CalculatorField(key: 'broker', label: '중개보수', unit: '원'),
+      CalculatorField(key: 'legal', label: '법무·등기', unit: '원'),
+      CalculatorField(key: 'repair', label: '즉시수리', unit: '원'),
+      CalculatorField(key: 'other', label: '기타', unit: '원', defaultValue: '0'),
+    ],
+    limitations: ['세율·중개요율은 공식·약정 확인', '교육용 합계'],
+    route: '/tools/acquisition-cost',
+  ),
+  CalculatorDefinition(
+    id: 'calc-etf-fee',
+    title: 'ETF 비용 장기영향',
+    purpose: '총보수를 단순 차감한 교육용 미래가치.',
+    formula: '최종 ≈ 원금 × (1 + 총수익% − 보수%)^년',
+    fields: [
+      CalculatorField(key: 'principal', label: '원금', unit: '원'),
+      CalculatorField(key: 'gross', label: '가정 총수익률', unit: '%'),
+      CalculatorField(key: 'fee', label: '연 총보수', unit: '%'),
+      CalculatorField(key: 'years', label: '기간', unit: '년'),
+    ],
+    limitations: ['과거≠미래', '추적오차·세금 미반영'],
+    route: '/tools/etf-fee',
+  ),
+  CalculatorDefinition(
+    id: 'calc-recovery',
+    title: '투자손실 회복률',
+    purpose: '손실 후 원금 회복에 필요한 수익률(교육).',
+    formula: '회복률 = 손실% / (1 − 손실%) × 100',
+    fields: [
+      CalculatorField(
+        key: 'loss',
+        label: '손실률',
+        unit: '%',
+        hint: '예: 20이면 20% 하락',
+      ),
+    ],
+    limitations: ['실제 투자 권유 아님'],
+    route: '/tools/recovery',
+  ),
+  CalculatorDefinition(
+    id: 'calc-rate-stress',
+    title: '금리상승 월상환 스트레스',
+    purpose: '금리가 올랐을 때 원리금균등 월상환 변화를 비교합니다.',
+    formula: '동일 원금·기간, 금리만 변경해 월상환 비교',
+    fields: [
+      CalculatorField(key: 'principal', label: '대출원금', unit: '원'),
+      CalculatorField(key: 'rate', label: '현재 연이율', unit: '%'),
+      CalculatorField(key: 'stress', label: '스트레스 연이율', unit: '%'),
+      CalculatorField(key: 'months', label: '기간', unit: '개월'),
+    ],
+    limitations: ['실제 약정·수수료 미반영'],
+    route: '/tools/rate-stress',
+  ),
+  CalculatorDefinition(
+    id: 'calc-vacancy-stress',
+    title: '공실·수선 스트레스',
+    purpose: '공실·수선비가 늘 때 순임대현금 변화를 봅니다.',
+    formula: '순임대 = 연임대 − (기본비용 + 추가공실수선)',
+    fields: [
+      CalculatorField(key: 'rent', label: '연임대', unit: '원'),
+      CalculatorField(key: 'baseCost', label: '기본 연비용', unit: '원'),
+      CalculatorField(key: 'extra', label: '추가 공실·수선', unit: '원'),
+    ],
+    limitations: ['가격전망 없음'],
+    route: '/tools/vacancy-stress',
+  ),
+  CalculatorDefinition(
+    id: 'calc-sequence-risk',
+    title: '수익률 순서위험(교육)',
+    purpose: '초반 하락 후 인출이 잔고에 미치는 단순 예시.',
+    formula: '잔고1=(원금×(1+r1))−인출; 잔고2=잔고1×(1+r2)−인출',
+    fields: [
+      CalculatorField(key: 'principal', label: '시작원금', unit: '원'),
+      CalculatorField(key: 'r1', label: '1년차 수익률', unit: '%'),
+      CalculatorField(key: 'r2', label: '2년차 수익률', unit: '%'),
+      CalculatorField(key: 'withdraw', label: '매년 인출', unit: '원'),
+    ],
+    limitations: ['2년 단순 예시', '안전인출률 단정 금지'],
+    route: '/tools/sequence-risk',
+  ),
+  CalculatorDefinition(
+    id: 'calc-variable-income',
+    title: '변동소득 연간 합계',
+    purpose: '분기(또는 구간) 입금 합계와 평균을 봅니다.',
+    formula: '합계=q1+q2+q3+q4, 평균=합계/4',
+    fields: [
+      CalculatorField(key: 'q1', label: '1구간 입금', unit: '원'),
+      CalculatorField(key: 'q2', label: '2구간 입금', unit: '원'),
+      CalculatorField(key: 'q3', label: '3구간 입금', unit: '원'),
+      CalculatorField(key: 'q4', label: '4구간 입금', unit: '원'),
+    ],
+    limitations: ['비용·세금 미차감', '매출≠순이익'],
+    route: '/tools/variable-income',
+  ),
+  CalculatorDefinition(
+    id: 'calc-retirement-cashflow',
+    title: '은퇴기간 월갭',
+    purpose: '생활비와 연금·기타소득의 월 차이를 봅니다.',
+    formula: '월갭 = 생활비 − (연금합 + 기타소득)',
+    fields: [
+      CalculatorField(key: 'living', label: '월 생활비', unit: '원'),
+      CalculatorField(key: 'pension', label: '월 연금합', unit: '원'),
+      CalculatorField(
+        key: 'other',
+        label: '월 기타소득',
+        unit: '원',
+        defaultValue: '0',
+      ),
+    ],
+    limitations: ['의료·세금·건보 별도', '국민연금은 공식조회 권장'],
+    route: '/tools/retirement-cashflow',
+  ),
+  CalculatorDefinition(
+    id: 'calc-debt-interest',
+    title: '부채 총이자(원리금균등)',
+    purpose: '단일 대출의 총이자를 교육용으로 계산합니다.',
+    formula: '총이자 = 월상환×개월 − 원금',
+    fields: [
+      CalculatorField(key: 'principal', label: '원금', unit: '원'),
+      CalculatorField(key: 'rate', label: '연이율', unit: '%'),
+      CalculatorField(key: 'months', label: '기간', unit: '개월'),
+    ],
+    limitations: ['여러 대출 합산은 각각 계산 후 합산'],
+    route: '/tools/debt-interest',
+  ),
+  CalculatorDefinition(
+    id: 'calc-allocation-shift',
+    title: '자산배분 변동(단순)',
+    purpose: '두 자산 비중 변화에 따른 가중 가정수익(교육).',
+    formula: '가중% = w1×r1 + w2×r2 (w는 %)',
+    fields: [
+      CalculatorField(key: 'w1', label: '자산A 비중', unit: '%'),
+      CalculatorField(key: 'r1', label: '자산A 가정수익', unit: '%'),
+      CalculatorField(key: 'w2', label: '자산B 비중', unit: '%'),
+      CalculatorField(key: 'r2', label: '자산B 가정수익', unit: '%'),
+    ],
+    limitations: ['권장비율 아님', '상관·위험 미반영', '과거≠미래'],
+    route: '/tools/allocation-shift',
+  ),
 ];
 
 /// 계산기 실행 결과 (교육용)
@@ -388,6 +570,149 @@ CalculatorResult? runCalculator(String id, Map<String, double> values) {
           summary: '미래 월생활비 ${r.round()}원',
           details: ['현재 × (1+물가)^년'],
           copyText: '미래생활비: ${r.round()}원',
+        );
+      case 'calc-debt-burden':
+        final r = FinanceMath.paymentBurdenPercent(
+          monthlyPayment: v('payment'),
+          monthlyIncome: v('income'),
+        );
+        return CalculatorResult(
+          summary: '상환부담 ${r.toStringAsFixed(2)}%',
+          details: ['DSR 대체 아님'],
+          copyText: '상환부담: ${r.toStringAsFixed(2)}%',
+        );
+      case 'calc-emergency-months':
+        final r = FinanceMath.emergencyMonths(
+          cashLike: v('cash'),
+          monthlyEssential: v('essential'),
+        );
+        return CalculatorResult(
+          summary: '약 ${r.toStringAsFixed(1)}개월 충당',
+          details: ['직업·부양에 따라 목표 상이', '무조건 N개월 단정 금지'],
+          copyText: '비상자금 개월: ${r.toStringAsFixed(1)}',
+        );
+      case 'calc-net-rent':
+        final r = FinanceMath.netRentalCashFlow(
+          annualRent: v('rent'),
+          annualCosts: v('costs'),
+        );
+        return CalculatorResult(
+          summary: '순임대현금 ${r.round()}원/년',
+          details: ['세후 확정 아님'],
+          copyText: '순임대: ${r.round()}원',
+        );
+      case 'calc-acquisition-cost':
+        final sum =
+            v('price') +
+            v('tax') +
+            v('broker') +
+            v('legal') +
+            v('repair') +
+            v('other');
+        return CalculatorResult(
+          summary: '총취득 합계 ${sum.round()}원',
+          details: ['세율 미내장', '공식·약정 확인'],
+          copyText: '총취득합계: ${sum.round()}원',
+        );
+      case 'calc-etf-fee':
+        final r = FinanceMath.etfCostDragFutureValue(
+          principal: v('principal'),
+          grossReturnPercent: v('gross'),
+          feePercent: v('fee'),
+          years: v('years'),
+        );
+        return CalculatorResult(
+          summary: '가정 최종 ${r.round()}원',
+          details: ['과거≠미래', '세금·추적오차 미반영'],
+          copyText: 'ETF비용반영 최종: ${r.round()}원',
+        );
+      case 'calc-recovery':
+        final r = FinanceMath.recoveryReturnPercent(lossPercent: v('loss'));
+        return CalculatorResult(
+          summary: '원금 회복에 약 ${r.toStringAsFixed(2)}% 필요',
+          details: ['교육용', '투자 권유 아님'],
+          copyText: '회복률: ${r.toStringAsFixed(2)}%',
+        );
+      case 'calc-rate-stress':
+        final months = v('months').round();
+        final a = FinanceMath.equalPaymentMonthly(
+          principal: v('principal'),
+          annualRatePercent: v('rate'),
+          months: months,
+        );
+        final b = FinanceMath.equalPaymentMonthly(
+          principal: v('principal'),
+          annualRatePercent: v('stress'),
+          months: months,
+        );
+        return CalculatorResult(
+          summary:
+              '현재월 ${a.round()}원 → 스트레스 ${b.round()}원 (차이 ${(b - a).round()}원)',
+          details: ['약정·수수료 미반영'],
+          copyText: '월상환 ${a.round()} → ${b.round()}',
+        );
+      case 'calc-vacancy-stress':
+        final base = FinanceMath.netRentalCashFlow(
+          annualRent: v('rent'),
+          annualCosts: v('baseCost'),
+        );
+        final stressed = FinanceMath.netRentalCashFlow(
+          annualRent: v('rent'),
+          annualCosts: v('baseCost') + v('extra'),
+        );
+        return CalculatorResult(
+          summary: '기본 순임대 ${base.round()}원 → 스트레스 ${stressed.round()}원',
+          details: ['가격전망 없음'],
+          copyText: '순임대 ${base.round()} → ${stressed.round()}',
+        );
+      case 'calc-sequence-risk':
+        final y1 = v('principal') * (1 + v('r1') / 100) - v('withdraw');
+        final y2 = y1 * (1 + v('r2') / 100) - v('withdraw');
+        return CalculatorResult(
+          summary: '2년차 잔고 약 ${y2.round()}원',
+          details: ['1년차 후 ${y1.round()}원', '단순 2년 예시', '안전인출률 단정 금지'],
+          copyText: '순서위험 예시 잔고: ${y2.round()}원',
+        );
+      case 'calc-variable-income':
+        final sum = v('q1') + v('q2') + v('q3') + v('q4');
+        return CalculatorResult(
+          summary: '합계 ${sum.round()}원 / 구간평균 ${(sum / 4).round()}원',
+          details: ['비용·세금 미차감', '매출≠순이익'],
+          copyText: '변동소득 합계: ${sum.round()}원',
+        );
+      case 'calc-retirement-cashflow':
+        final gap = v('living') - (v('pension') + v('other'));
+        return CalculatorResult(
+          summary: gap >= 0
+              ? '월 부족 ${gap.round()}원'
+              : '월 여유 ${(-gap).round()}원',
+          details: ['의료·세금·건보 별도', 'NPS 공식조회 권장'],
+          copyText: '은퇴월갭: ${gap.round()}원',
+        );
+      case 'calc-debt-interest':
+        final months = v('months').round();
+        final interest = FinanceMath.equalPaymentTotalInterest(
+          principal: v('principal'),
+          annualRatePercent: v('rate'),
+          months: months,
+        );
+        return CalculatorResult(
+          summary: '총이자 ${interest.round()}원',
+          details: ['원리금균등 가정'],
+          copyText: '총이자: ${interest.round()}원',
+        );
+      case 'calc-allocation-shift':
+        final w1 = v('w1') / 100;
+        final w2 = v('w2') / 100;
+        final weighted = w1 * v('r1') + w2 * v('r2');
+        return CalculatorResult(
+          summary: '가중 가정수익 ${weighted.toStringAsFixed(2)}%',
+          details: [
+            '비중합 ${(v('w1') + v('w2')).toStringAsFixed(1)}%',
+            '권장비율 아님',
+            '과거≠미래',
+          ],
+          copyText: '가중수익: ${weighted.toStringAsFixed(2)}%',
         );
       default:
         return null;

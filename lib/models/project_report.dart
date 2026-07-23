@@ -16,6 +16,10 @@ class ProjectReport {
     required this.remainingReviews,
     required this.phase2Plan,
     required this.phase3Plan,
+    this.qualitySummary = '',
+    this.upgradedContentCount = 0,
+    this.lifePathCount = 0,
+    this.diagnosisAvailable = true,
   });
 
   final String phase;
@@ -34,16 +38,24 @@ class ProjectReport {
   final List<String> remainingReviews;
   final List<String> phase2Plan;
   final List<String> phase3Plan;
+  final String qualitySummary;
+  final int upgradedContentCount;
+  final int lifePathCount;
+  final bool diagnosisAvailable;
 
   String toMarkdown() {
     final buf = StringBuffer()
-      ..writeln('# SotongFinance 1단계 완료 보고')
+      ..writeln('# SotongFinance 2단계 완료 보고')
       ..writeln()
       ..writeln('## 작업 단계')
       ..writeln(phase)
       ..writeln()
       ..writeln('## 변경 요약')
       ..writeln(summary)
+      ..writeln()
+      ..writeln('## 품질')
+      ..writeln(qualitySummary)
+      ..writeln('- 수동 보강 콘텐츠: $upgradedContentCount')
       ..writeln()
       ..writeln('## 콘텐츠 수')
       ..writeln('- 학습 콘텐츠: $contentCount')
@@ -52,6 +64,8 @@ class ProjectReport {
       ..writeln('- 용어: $termCount')
       ..writeln('- 프롬프트: $promptCount')
       ..writeln('- 공식 출처: $sourceCount')
+      ..writeln('- 생애주기 경로: $lifePathCount')
+      ..writeln('- 교육용 재무진단: ${diagnosisAvailable ? '제공(로컬 비저장)' : '없음'}')
       ..writeln()
       ..writeln('## 테스트')
       ..writeln(testStatus)
@@ -69,7 +83,7 @@ class ProjectReport {
       ..writeln('## 남은 검토')
       ..writeln(remainingReviews.map((e) => '- $e').join('\n'))
       ..writeln()
-      ..writeln('## 2단계 계획')
+      ..writeln('## 2단계 범위(완료·잔여)')
       ..writeln(phase2Plan.map((e) => '- $e').join('\n'))
       ..writeln()
       ..writeln('## 3단계 계획')

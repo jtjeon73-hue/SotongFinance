@@ -20,6 +20,7 @@ class _SearchScreenState extends State<SearchScreen> {
   Difficulty? _difficulty;
   ContentType? _contentType;
   LifeStage? _lifeStage;
+  bool _reviewDueOnly = false;
 
   @override
   void dispose() {
@@ -40,6 +41,9 @@ class _SearchScreenState extends State<SearchScreen> {
     }
     if (_lifeStage != null) {
       list = list.where((c) => c.lifeStages.contains(_lifeStage)).toList();
+    }
+    if (_reviewDueOnly) {
+      list = list.where((c) => c.needsReview == true).toList();
     }
     return list;
   }
@@ -106,6 +110,11 @@ class _SearchScreenState extends State<SearchScreen> {
               ],
               onSelected: (v) => setState(() => _category = v),
             ),
+            FilterChip(
+              label: const Text('검토기한 초과'),
+              selected: _reviewDueOnly,
+              onSelected: (v) => setState(() => _reviewDueOnly = v),
+            ),
           ],
         ),
         const SizedBox(height: 16),
@@ -135,6 +144,11 @@ class _SearchScreenState extends State<SearchScreen> {
                         label: Text(c.category),
                         visualDensity: VisualDensity.compact,
                       ),
+                      if (c.needsReview)
+                        const Chip(
+                          label: Text('재확인 필요'),
+                          visualDensity: VisualDensity.compact,
+                        ),
                     ],
                   ),
                 ],

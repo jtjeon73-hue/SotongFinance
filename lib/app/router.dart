@@ -4,8 +4,10 @@ import 'package:go_router/go_router.dart';
 import '../screens/about_screen.dart';
 import '../screens/calculator_screen.dart';
 import '../screens/content_detail_screen.dart';
+import '../screens/diagnosis_screen.dart';
 import '../screens/glossary_screen.dart';
 import '../screens/home_screen.dart';
+import '../screens/life_paths_screen.dart';
 import '../screens/project_report_screen.dart';
 import '../screens/prompts_screen.dart';
 import '../screens/scenario_detail_screen.dart';
@@ -30,6 +32,19 @@ const _toolSlugToCalcId = <String, String>{
   'retirement-gap': 'calc-retirement-gap',
   'pension-sum': 'calc-pension-sum',
   'future-cost': 'calc-future-cost',
+  'debt-burden': 'calc-debt-burden',
+  'emergency-months': 'calc-emergency-months',
+  'net-rent': 'calc-net-rent',
+  'acquisition-cost': 'calc-acquisition-cost',
+  'etf-fee': 'calc-etf-fee',
+  'recovery': 'calc-recovery',
+  'rate-stress': 'calc-rate-stress',
+  'vacancy-stress': 'calc-vacancy-stress',
+  'sequence-risk': 'calc-sequence-risk',
+  'variable-income': 'calc-variable-income',
+  'retirement-cashflow': 'calc-retirement-cashflow',
+  'debt-interest': 'calc-debt-interest',
+  'allocation-shift': 'calc-allocation-shift',
 };
 
 String? calcIdFromToolSlug(String slug) => _toolSlugToCalcId[slug];
@@ -79,6 +94,18 @@ final appRouter = GoRouter(
               },
             ),
           ],
+        ),
+        GoRoute(
+          path: '/diagnose',
+          name: 'diagnose',
+          pageBuilder: (context, state) =>
+              const NoTransitionPage(child: DiagnosisScreen()),
+        ),
+        GoRoute(
+          path: '/paths',
+          name: 'paths',
+          pageBuilder: (context, state) =>
+              const NoTransitionPage(child: LifePathsScreen()),
         ),
         GoRoute(
           path: '/search',

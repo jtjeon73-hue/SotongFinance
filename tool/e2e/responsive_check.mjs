@@ -23,6 +23,8 @@ const ROUTES = [
   '/',
   '/search',
   '/tools',
+  '/diagnose',
+  '/paths',
   '/project/report',
   '/learn/basics-money-role',
   '/learn/money-household',
@@ -34,6 +36,8 @@ const ROUTES = [
   '/learn/fraud-voice',
   '/tools/compound-interest',
   '/tools/loan-payment',
+  '/tools/emergency-months',
+  '/tools/sequence-risk',
 ];
 
 function isMobile(vp) {

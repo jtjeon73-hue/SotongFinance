@@ -1201,6 +1201,63 @@ const appNavGroups = <NavGroup>[
         title: '미래생활비',
         route: '/tools/future-cost',
       ),
+      NavItem(
+        id: 'calc-debt-burden',
+        title: '대출상환 부담률',
+        route: '/tools/debt-burden',
+      ),
+      NavItem(
+        id: 'calc-emergency-months',
+        title: '비상자금 개월수',
+        route: '/tools/emergency-months',
+      ),
+      NavItem(id: 'calc-net-rent', title: '순임대현금흐름', route: '/tools/net-rent'),
+      NavItem(
+        id: 'calc-acquisition-cost',
+        title: '부동산 총취득비용',
+        route: '/tools/acquisition-cost',
+      ),
+      NavItem(
+        id: 'calc-etf-fee',
+        title: 'ETF 비용 장기영향',
+        route: '/tools/etf-fee',
+      ),
+      NavItem(id: 'calc-recovery', title: '손실 회복률', route: '/tools/recovery'),
+      NavItem(
+        id: 'calc-rate-stress',
+        title: '금리상승 스트레스',
+        route: '/tools/rate-stress',
+      ),
+      NavItem(
+        id: 'calc-vacancy-stress',
+        title: '공실·수선 스트레스',
+        route: '/tools/vacancy-stress',
+      ),
+      NavItem(
+        id: 'calc-sequence-risk',
+        title: '수익률 순서 위험',
+        route: '/tools/sequence-risk',
+      ),
+      NavItem(
+        id: 'calc-variable-income',
+        title: '변동소득 연간 현금흐름',
+        route: '/tools/variable-income',
+      ),
+      NavItem(
+        id: 'calc-retirement-cashflow',
+        title: '은퇴기간별 현금흐름',
+        route: '/tools/retirement-cashflow',
+      ),
+      NavItem(
+        id: 'calc-debt-interest',
+        title: '부채 총이자 비교',
+        route: '/tools/debt-interest',
+      ),
+      NavItem(
+        id: 'calc-allocation-shift',
+        title: '자산배분 변동 시나리오',
+        route: '/tools/allocation-shift',
+      ),
     ],
   ),
   NavGroup(
@@ -1212,6 +1269,8 @@ const appNavGroups = <NavGroup>[
       NavItem(id: 'sources', title: '공식자료', route: '/sources'),
       NavItem(id: 'scenarios', title: '금융 시나리오', route: '/scenarios'),
       NavItem(id: 'prompts', title: '분석 프롬프트', route: '/prompts'),
+      NavItem(id: 'paths', title: '생애주기 경로', route: '/paths'),
+      NavItem(id: 'diagnose', title: '교육용 재무진단', route: '/diagnose'),
       NavItem(id: 'search', title: '검색', route: '/search'),
     ],
   ),
@@ -1222,7 +1281,7 @@ const appNavGroups = <NavGroup>[
     items: [
       NavItem(
         id: 'project-report',
-        title: '1단계 완료 보고',
+        title: '2단계 완료 보고',
         route: '/project/report',
       ),
       NavItem(id: 'about', title: '사이트 안내', route: '/about'),

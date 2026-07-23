@@ -164,4 +164,62 @@ class FinanceMath {
     final mod = math.pow(10, digits).toDouble();
     return (value * mod).round() / mod;
   }
+
+  /// 부채비중(%) = 부채 ÷ 자산 × 100
+  static double debtRatioPercent({
+    required double liabilities,
+    required double assets,
+  }) {
+    if (assets == 0) throw ArgumentError('자산은 0이 될 수 없습니다.');
+    return (liabilities / assets) * 100;
+  }
+
+  /// 비상자금 충당개월 = 현금성 ÷ 월필수지출
+  static double emergencyMonths({
+    required double cashLike,
+    required double monthlyEssential,
+  }) {
+    if (monthlyEssential <= 0) {
+      throw ArgumentError('월 필수지출은 0보다 커야 합니다.');
+    }
+    return cashLike / monthlyEssential;
+  }
+
+  /// 순임대현금흐름 = 연임대 − 연비용
+  static double netRentalCashFlow({
+    required double annualRent,
+    required double annualCosts,
+  }) => annualRent - annualCosts;
+
+  /// ETF 비용 장기영향: 최종≈원금×(1+r−fee)^n (교육용 단순)
+  static double etfCostDragFutureValue({
+    required double principal,
+    required double grossReturnPercent,
+    required double feePercent,
+    required double years,
+  }) {
+    final net = (grossReturnPercent - feePercent) / 100;
+    return principal * math.pow(1 + net, years);
+  }
+
+  /// 투자손실 회복률(%) = 손실% / (1 − 손실%) × 100
+  static double recoveryReturnPercent({required double lossPercent}) {
+    if (lossPercent >= 100) {
+      throw ArgumentError('100% 이상 손실은 회복률을 정의할 수 없습니다.');
+    }
+    if (lossPercent < 0) {
+      throw ArgumentError('손실률은 0 이상이어야 합니다.');
+    }
+    final L = lossPercent / 100;
+    return (L / (1 - L)) * 100;
+  }
+
+  /// 대출상환부담(%) = 월상환 ÷ 월소득 × 100
+  static double paymentBurdenPercent({
+    required double monthlyPayment,
+    required double monthlyIncome,
+  }) {
+    if (monthlyIncome == 0) throw ArgumentError('월소득은 0이 될 수 없습니다.');
+    return (monthlyPayment / monthlyIncome) * 100;
+  }
 }

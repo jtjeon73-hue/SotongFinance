@@ -3,6 +3,7 @@ import 'package:go_router/go_router.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../core/theme/app_theme.dart';
+import '../core/utils/freshness.dart';
 import '../data/content_catalog.dart';
 import '../data/content_id_mapping.dart';
 import '../data/nav_data.dart';
@@ -59,15 +60,39 @@ class ContentDetailScreen extends StatelessWidget {
             Chip(label: Text('기준연도 ${content.referenceYear}')),
             Chip(label: Text('확인 ${content.checkedAt}')),
             Chip(label: Text(content.verificationStatus.label)),
+            Chip(
+              label: Text(
+                freshnessFor(
+                  reviewDueAt: content.reviewDueAt,
+                  verificationStatusName: content.verificationStatus.name,
+                ).label,
+              ),
+            ),
           ],
         ),
         if (content.needsReview ||
-            content.verificationStatus == VerificationStatus.needsReview) ...[
+            content.verificationStatus == VerificationStatus.needsReview ||
+            content.verificationStatus == VerificationStatus.versionDependent ||
+            content.verificationStatus ==
+                VerificationStatus.professionalReviewRequired ||
+            content.verificationStatus ==
+                VerificationStatus.officialCalculatorRecommended) ...[
           const SizedBox(height: 12),
           _ReviewWarning(content: content),
         ],
         const SizedBox(height: 20),
         const DisclaimerBanner(compact: true),
+        if (content.sections.length >= 4) ...[
+          const SizedBox(height: 16),
+          Text('목차', style: Theme.of(context).textTheme.titleMedium),
+          const SizedBox(height: 8),
+          ...content.sections.map(
+            (s) => Padding(
+              padding: const EdgeInsets.only(bottom: 4),
+              child: Text('· ${s.heading}'),
+            ),
+          ),
+        ],
         const SizedBox(height: 20),
         ...content.sections.map(
           (s) => SectionCard(
@@ -252,9 +277,17 @@ class _ReviewWarning extends StatelessWidget {
           Icon(Icons.warning_amber, color: AppColors.warning),
           const SizedBox(width: 8),
           Expanded(
-            child: Text(
-              '검토 필요: reviewDueAt ${content.reviewDueAt}. '
-              '최신 공식 자료와 대조하세요.',
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const Text(reviewBannerText),
+                const SizedBox(height: 6),
+                Text(
+                  '확인일 ${content.checkedAt} · 재검토예정 ${content.reviewDueAt} · '
+                  '${freshnessFor(reviewDueAt: content.reviewDueAt, verificationStatusName: content.verificationStatus.name).label}',
+                  style: const TextStyle(fontSize: 12),
+                ),
+              ],
             ),
           ),
         ],

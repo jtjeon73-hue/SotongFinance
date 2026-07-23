@@ -3,10 +3,15 @@ import 'package:flutter/material.dart';
 import '../core/constants/app_constants.dart';
 import '../data/calculator_catalog.dart';
 import '../data/content_catalog.dart';
+import '../data/content_quality_data.dart';
+import '../data/life_path_data.dart';
+import '../data/phase2_upgraded_ids.dart';
 import '../data/prompt_data.dart';
 import '../data/scenario_data.dart';
 import '../data/source_data.dart';
 import '../data/term_data.dart';
+import '../models/content_quality.dart';
+import '../models/enums.dart';
 import '../models/project_report.dart';
 import '../widgets/breadcrumb.dart';
 import '../widgets/copy_button.dart';
@@ -15,29 +20,69 @@ class ProjectReportScreen extends StatelessWidget {
   const ProjectReportScreen({super.key});
 
   ProjectReport _buildReport() {
+    final grades = countByGrade();
+    final overdueSources = officialSources.where((s) {
+      final due = DateTime.tryParse(s.reviewDueAt);
+      return due != null && DateTime.now().isAfter(due);
+    }).length;
+    final statusCounts = <VerificationStatus, int>{
+      for (final s in VerificationStatus.values) s: 0,
+    };
+    for (final s in officialSources) {
+      statusCounts[s.verificationStatus] =
+          (statusCounts[s.verificationStatus] ?? 0) + 1;
+    }
+
     return ProjectReport(
       phase: AppConstants.phase,
       summary:
-          'Flutter Web 기반 SotongFinance 1단계: 학습 콘텐츠·계산기·용어·시나리오·프롬프트·'
-          '공식 출처 UI 및 라우팅 구현. 교육용 면책·접근성(48px 터치) 반영.',
+          '2단계 실무 콘텐츠 심화: 핵심 ${phase2UpgradedIds.length}개 수동 보강, '
+          '교육용 재무진단·생애주기 경로·계산기 확장·검토기한·출처 확대. '
+          '상품 추천·세율 임의고정·개인재무 서버저장 없음.',
       contentCount: allFinanceContent.length,
       calculatorCount: calculatorCatalog.length,
       scenarioCount: financialScenarios.length,
       termCount: financialTerms.length,
       promptCount: promptItems.length,
       sourceCount: officialSources.length,
-      testStatus: 'flutter analyze 통과 / flutter test 32 passed (로컬)',
-      commitHash: '4a686738052117f5fc266ccf44a916045d91cea9',
-      actionsStatus: 'workflow 구성 완료 · Secret 등록·Actions 실행은 배포 후 확인',
+      testStatus:
+          'format / analyze --fatal-infos / flutter test / web release / 반응형 E2E',
+      commitHash: 'pending-phase2',
+      actionsStatus: 'push 후 build-and-test · Firebase Hosting 자동배포 확인',
       firebaseProjectId: AppConstants.firebaseProjectId,
       hostingUrl: AppConstants.hostingUrl,
+      qualitySummary:
+          '전체 ${allFinanceContent.length} · '
+          'A ${grades[ContentQualityGrade.a] ?? 0} · '
+          'B ${grades[ContentQualityGrade.b] ?? 0} · '
+          'C ${grades[ContentQualityGrade.c] ?? 0} · '
+          'D ${grades[ContentQualityGrade.d] ?? 0} '
+          '(글자수 비사용). 출처 상태 verified ${statusCounts[VerificationStatus.verified]} · '
+          'versionDependent ${statusCounts[VerificationStatus.versionDependent]} · '
+          'needsReview ${statusCounts[VerificationStatus.needsReview]} · '
+          'officialCalculatorRecommended ${statusCounts[VerificationStatus.officialCalculatorRecommended]} · '
+          'professionalReviewRequired ${statusCounts[VerificationStatus.professionalReviewRequired]} · '
+          'educationalExample ${statusCounts[VerificationStatus.educationalExample]} · '
+          '출처 검토기한 초과 $overdueSources',
+      upgradedContentCount: phase2UpgradedIds.length,
+      lifePathCount: lifePaths.length,
+      diagnosisAvailable: true,
       remainingReviews: [
-        '세법·연금·부동산 versionDependent 콘텐츠 공식 대조',
-        'needsReview 표시 항목 갱신',
-        'GitHub Secret FIREBASE_SERVICE_ACCOUNT_SOTONG_FINANCE 등록 확인',
+        '세금·연금·대출규제 versionDependent 콘텐츠 공식 재대조',
+        '잔여 C/D 템플릿 콘텐츠 3단계 보강',
+        '전문가 검토 필요 표시 항목(농지·상속·세무) 심화',
       ],
-      phase2Plan: ['실무 난이도 콘텐츠 확장', '출처 reviewDueAt 만료 알림', '생애주기별 학습 경로 큐레이션'],
-      phase3Plan: ['전문가 심화·제도 변경 타임라인', '별도 보안 검토 후 선택적 개인 재무기록', '접근성·다국어 검토'],
+      phase2Plan: [
+        '핵심 콘텐츠 수동 보강 완료(${phase2UpgradedIds.length})',
+        '재무진단·생애주기·계산기·프롬프트·출처·검토기한 반영',
+        '남은 C/D는 자동 A 처리하지 않음',
+      ],
+      phase3Plan: [
+        '자산배분·은퇴 인출 심화',
+        '세금·상속 준비 심화(확정세액 아님)',
+        '위험관리·스트레스 시나리오 확장',
+        '전문가 검토 연계·제도 변경 타임라인',
+      ],
     );
   }
 
@@ -52,12 +97,12 @@ class ProjectReportScreen extends StatelessWidget {
         const Breadcrumb(
           items: [
             BreadcrumbItem(label: '홈', route: '/'),
-            BreadcrumbItem(label: '1단계 완료 보고'),
+            BreadcrumbItem(label: '2단계 완료 보고'),
           ],
         ),
         const SizedBox(height: 16),
         Text(
-          '1단계 완료 보고',
+          '2단계 완료 보고',
           style: Theme.of(
             context,
           ).textTheme.headlineSmall?.copyWith(fontWeight: FontWeight.w800),
@@ -78,7 +123,7 @@ class ProjectReportScreen extends StatelessWidget {
         ),
         const SizedBox(height: 8),
         const Text(
-          '참고: 커밋 해시는 push 후 /project/report 또는 Git에서 확인하세요. '
+          '참고: 커밋 해시는 push 후 갱신합니다. '
           '서버에 개인 재무정보를 저장하지 않습니다.',
           style: TextStyle(fontSize: 13),
         ),
