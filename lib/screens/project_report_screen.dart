@@ -27,7 +27,7 @@ class ProjectReportScreen extends StatelessWidget {
       promptCount: promptItems.length,
       sourceCount: officialSources.length,
       testStatus: 'flutter analyze 통과 / flutter test 32 passed (로컬)',
-      commitHash: 'see-git-after-push',
+      commitHash: '4a686738052117f5fc266ccf44a916045d91cea9',
       actionsStatus: 'workflow 구성 완료 · Secret 등록·Actions 실행은 배포 후 확인',
       firebaseProjectId: AppConstants.firebaseProjectId,
       hostingUrl: AppConstants.hostingUrl,
